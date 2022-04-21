@@ -36,6 +36,7 @@ header {
 }
 
 .b1 {
+    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #ead1dc;
@@ -43,6 +44,7 @@ header {
 }
 
 .b2 {
+    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #ead1dc;
@@ -50,6 +52,7 @@ header {
 }
 
 .b3 {
+    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #76afa4;
@@ -58,4 +61,17 @@ header {
 
 .col {
     flex: 50%;
+}
+
+.cercador {
+    background-image: url('foto_fondo.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 85vh;
+}
+
+.chincheta {
+    height: 75%;
+    display: inline-block;
 }
