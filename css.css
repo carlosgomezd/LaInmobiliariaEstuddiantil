@@ -105,13 +105,12 @@ body {
     -o-background-size: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 100%;
     height: 95vh;
     align-items: center;
-    justify-content: center;
 }
 
 .cuadrat {
+    margin: auto auto auto auto;
     height: 500px;
     width: 1000px;
     background-color: #45818e;
@@ -119,6 +118,7 @@ body {
     position: relative;
     z-index: 1;
 }
+
 
 .chincheta {
     height: 60%;
@@ -136,13 +136,6 @@ body {
     margin-right: 5px;
 }
 
-.fondo {
-    background-color: #45818e;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50% 50%;
-    height: 50vh;
-}
 
 .baix {
     vertical-align: top;
