@@ -36,7 +36,6 @@ header {
 }
 
 .b1 {
-    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #ead1dc;
@@ -44,7 +43,6 @@ header {
 }
 
 .b2 {
-    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #ead1dc;
@@ -52,7 +50,6 @@ header {
 }
 
 .b3 {
-    display: inline-block;
     flex: 33.3%;
     border-style: none;
     background-color: #76afa4;
@@ -72,6 +69,16 @@ header {
 }
 
 .chincheta {
-    height: 75%;
-    display: inline-block;
+    height: 60%;
+    margin-right: 5px;
+
+}
+
+.usuario {
+    height: 60%;
+    margin-right: 5px;
+}
+.cat{
+ height: 50%; 
+ margin-right: 5px;  
 }
