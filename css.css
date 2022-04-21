@@ -1,0 +1,24 @@
+body {
+    background-color: #e5d0ba;
+}
+
+header {
+    background: #be6b5b;
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.p1 {
+    color: #e5d0ba;
+    display:inline-block;
+    margin-left: auto;
+}
+.img{
+    vertical-align:top;
+    width: 74px;
+    display:inline-block;
+    margin: auto;
+}
