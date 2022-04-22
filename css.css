@@ -107,18 +107,39 @@ body {
     background-repeat: no-repeat;
     height: 95vh;
     align-items: center;
+    flex-direction: column;
 }
 
 .cuadrat {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto auto auto auto;
     height: 500px;
     width: 1000px;
     background-color: #45818e;
+    align-items: center;
     opacity: 0.7;
     position: relative;
     z-index: 1;
 }
 
+.s1 {
+    opacity: 1;
+    display: flex;
+}
+
+.opcions {
+    display: flex;
+    column-count: 3;
+}
+.opCerca{
+    column-count: 3;
+    column-gap: 25px;
+    column-span: all;
+    column-rule: 1px solid rgb(0, 0, 0);
+}
 
 .chincheta {
     height: 60%;
@@ -159,4 +180,11 @@ body {
     border-top: 2px solid rgb(62, 62, 62);
     border-bottom: none;
     width: 200px;
+}
+
+.redes {
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 25px;
+
 }
