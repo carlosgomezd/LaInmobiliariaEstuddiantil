@@ -93,19 +93,20 @@ body {
 
 .col {
     flex: 50%;
-
 }
 
 .cercador {
+    flex-direction: column;
     margin-top: 90px;
     display: flex;
-    background-image: url('foto_fondo.jpg');
+    background-image: url('./fondo2.jpg');
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 95vh;
+    height: 88vh;
+    width:100%;
     align-items: center;
     flex-direction: column;
 }
@@ -116,8 +117,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto auto auto auto;
-    height: 500px;
-    width: 1000px;
+    height: 350px;
+    width: 750px;
     background-color: #45818e;
     align-items: center;
     opacity: 0.7;
@@ -131,10 +132,15 @@ body {
 }
 
 .opcions {
+    height: 100px;
     display: flex;
     column-count: 3;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
 }
-.opCerca{
+
+.opCerca {
     column-count: 3;
     column-gap: 25px;
     column-span: all;
