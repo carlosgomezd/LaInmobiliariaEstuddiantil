@@ -108,7 +108,9 @@ body {
     align-items: center;
     position: relative;
     z-index: 1;
+    border-radius: 20px;
 }
+
 
 .s1 {
     opacity: 1;
@@ -124,12 +126,6 @@ body {
     align-items: center;
 }
 
-.opCerca {
-    column-count: 3;
-    column-gap: 25px;
-    column-span: all;
-    column-rule: 1px solid rgb(0, 0, 0);
-}
 
 .chincheta {
     height: 60%;
@@ -139,11 +135,6 @@ body {
 
 .usuario {
     height: 60%;
-    margin-right: 5px;
-}
-
-.cat {
-    height: 50%;
     margin-right: 5px;
 }
 
