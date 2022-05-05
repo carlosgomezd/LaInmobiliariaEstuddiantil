@@ -108,6 +108,23 @@ a.efectoTitulo, a.efectoTitulo:hover {
     display: flex;
 }
 
+.ajuda {
+    margin-top: 10px;
+    height: 65px;
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+}
+
+.llista {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    column-count: 3;
+    column-gap: 50px;
+    flex: 80%;
+}
+
 .h1 {
     display: flex;
     margin: auto auto 5px 10px;
