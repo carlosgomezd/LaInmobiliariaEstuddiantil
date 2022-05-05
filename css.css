@@ -42,6 +42,13 @@ body {
     border-radius: 15px;
 }
 
+div.wrapper {
+    position: relative;
+    border: 2px solid cornflowerblue;
+    margin-top: 20px;
+    padding: 20px 10px 10px;
+}
+
 .registerContent {
     display: flex;
     justify-content: center;
@@ -51,6 +58,25 @@ body {
     margin: auto auto auto auto;
     background-color: rgba(229, 208, 186, 0.8);
     border: rgba(0, 0, 0, 0.8) 2px solid;
+    border-radius: 15px;
+}
+
+.pisoContent {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 90%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(229, 208, 186, 0.8);
+    border: rgb(0, 0, 0) 5px solid;
+    align-items: center;
+    opacity: 100%;
+    z-index: 1;
     border-radius: 15px;
 }
 
@@ -133,31 +159,40 @@ a.efectoTitulo, a.efectoTitulo:hover {
     font-weight: 700;
 }
 
-/* .lista {
-    vertical-align: top;
-    display: inline-block;
-    width: 25%;
-    line-height: 2;
-    color: rgb(62, 62, 62);
-    text-align: center;
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
 }
 
-.listElem {
-    text-decoration: none;
-    color: rgb(62, 62, 62);
+.rating>input {
+    display: none;
 }
 
-.hr {
-    display: inline-block;
-    border-top: 2px solid rgb(62, 62, 62);
-    border-bottom: none;
-    width: 200px;
+.rating>label {
+    position: relative;
+    width: 1.1em;
+    font-size: 15vw;
+    color: #FFD700;
+    cursor: pointer;
 }
 
-.redes {
-    height: 44px;
-    width: 44px;
-    vertical-align: top;
-    display: inline-block;
-    margin-left: 25px;
-} */
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important;
+}
+
+.rating>input:checked~label:before {
+    opacity: 1;
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4;
+}
