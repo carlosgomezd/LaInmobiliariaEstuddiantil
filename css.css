@@ -58,8 +58,8 @@ body {
     height: 400px;
     width: 500px;
     margin: auto auto auto auto;
-    background-color: #e5d0ba;
-    border: rgb(0, 0, 0) 5px solid;
+    background-color: rgba(229, 208, 186, 0.8);
+    border:rgb(0, 0, 0) 5px solid;
     align-items: center;
     opacity: 100%;
     position: relative;
@@ -68,7 +68,6 @@ body {
 }
 
 .registerContent {
-    position: fixed;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -76,11 +75,10 @@ body {
     height: 600px;
     width: 500px;
     margin: auto auto auto auto;
-    background-color: #e5d0ba;
-    border: rgba(0, 0, 0) 5px solid;
+    background-color: rgba(229, 208, 186, 0.8);
+    border:rgb(0, 0, 0) 5px solid;
     align-items: center;
     opacity: 100%;
-    position: relative;
     z-index: 1;
     border-radius: 15px;
 }
@@ -170,7 +168,6 @@ a.efectoTitulo, a.efectoTitulo:hover {
     height: 100vh;
     align-items: center;
 }
-
 
 .opcions {
     height: 100px;
