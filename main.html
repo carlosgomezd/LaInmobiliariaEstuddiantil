@@ -3,56 +3,80 @@
 <meta charset="UTF-8" />
 
 <head>
-    <title>WEB FHiC</title>
+    <title>La Inmobiliaria Estudiantil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css.css">
     <script src="./javascript.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <div class="col">
-            <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
-                    src="./logo.png" alt="logo">
-                <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-            </a>
-        </div>
-        <nav>
-            <div class="buttons">
-                <select class="b1">
-                    <option value="cat">Català</option>
-                    <option value="cast">Castellano</option>
-                    <option value="eng">English</option>
-                </select>
-            </div>
-            <div class="buttons">
-                <button class="b2" type="button" onclick="window.location.href='./login.html'"><img class="usuario"
-                        src="./usuario24.png">Incia sessió</button>
-            </div>
-            <div class="buttons">
-                <button class="b3" type="button" onclick="window.location.href='./anunci.html'"><img class="chincheta"
-                        src="./icono_cincheta_24.png">Posa
-                    el teu anunci!</button>
-            </div>
-        </nav>
-    </div>
-    <div class="cercador">
-        <div class="cuadrat">
-            <div style="display: flex;">
-                <h1 style=" text-align: center; opacity: 100%">La millor opció per a tu!</h1>
-            </div>
 
-            <div class="opcions">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div>
+                    <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                            src="./logo.png" alt="logo">
+                        <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+                    </a>
+                </div>
+                <div style="display:flex; align-self: center; column-count: auto; column-gap: 15px;">
+                    <button class="b3" type="button" onclick="window.location.href='./anunci.html'">📌 Posa
+                        el teu anunci!</button>
+                    <button class="b2" type="button" onclick="window.location.href='./login.html'">👤 Incia
+                        sessió</button>
+                    <select class="b1">
+                        <option value="cat">Català</option>
+                        <option value="cast">Castellano</option>
+                        <option value="eng">English</option>
+                    </select>
+                </div>
             </div>
-            <div style="column-count: 3; column-gap: 50px; align-self:auto;">
+        </div>
+    </div>
+
+    <div class="cercador">
+        <div class="mainContent">
+            <div>
+
+                <h2 style="text-align: center; flex-direction: column; align-items: center; justify-content: center;"
+                    style="margin-top: auto; opacity: 100%;">Troba el millor pis per a tu!</h2>
+                <p></p>
+
+                <form>
+                    <div class="container" style="display: flex; flex-direction: column; ">
+
+                    </div>
+
             </div>
+            </form>
         </div>
         <div
             style="column-count: 3; column-gap: 50px; margin-bottom: 50px; color: #e5d0ba;  border-radius:  20px; column-rule:  1px solid #e5d0ba; opacity: 0.8;">
-            <li style="list-style: none;"><a href="./main.html" style="color:#e5d0ba">Cerca clàssica</a></li>
-            <li style="list-style: none;"><a href="./cerca1.html" style="color:#e5d0ba">Cerca per paraules</a></li>
-            <li style="list-style: none;"><a href="./cerca2.html" style="color:#e5d0ba">Cerques freqüents</a></li>
+            <li style="list-style: none;"><a href="./main.html" style="color:#e5d0ba">Cerca clàssica</a>
+            </li>
+            <li style="list-style: none;"><a href="./cerca1.html" style="color:#e5d0ba">Cerca per
+                    paraules</a></li>
+            <li style="list-style: none;"><a href="./cerca2.html" style="color:#e5d0ba">Cerques
+                    freqüents</a></li>
 
         </div>
+    </div>
+    </div>
+
+    <div
+        style="column-count: 3; column-gap: 50px; margin-bottom: 50px; color: #e5d0ba;  border-radius:  20px; column-rule:  1px solid #e5d0ba; opacity: 0.8;">
+        <li style="list-style: none;"><a href="./main.html" style="color:#e5d0ba">Cerca clàssica</a></li>
+        <li style="list-style: none;"><a href="./cerca1.html" style="color:#e5d0ba">Cerca per paraules</a></li>
+        <li style="list-style: none;"><a href="./cerca2.html" style="color:#e5d0ba">Cerques freqüents</a></li>
+
     </div>
 
     <div class="baix"><img class="img" src="./logo marronet.png" alt="logo"></div>
