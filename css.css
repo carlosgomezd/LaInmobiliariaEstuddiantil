@@ -55,7 +55,7 @@ div.wrapper {
     align-items: center;
     height: 600px;
     width: 500px;
-    margin: auto auto auto auto;
+    margin: center center center center;
     background-color: rgba(229, 208, 186, 0.8);
     border: rgba(0, 0, 0, 0.8) 2px solid;
     border-radius: 15px;
