@@ -191,11 +191,11 @@ body {
     margin: auto auto auto auto;
     height: 350px;
     width: 750px;
-    background-color: #45818e;
+    background-color: rgba(69, 129, 142, 0.8);
     align-items: center;
-    opacity: 0.7;
     position: relative;
     z-index: 1;
+    border-radius: 20px;
 }
 
 
@@ -230,12 +230,6 @@ body {
     height: 60%;
     margin-right: 5px;
 }
-
-.cat {
-    height: 50%;
-    margin-right: 5px;
-}
-
 
 .baix {
     vertical-align: top;
