@@ -60,11 +60,10 @@ const app = Vue.createApp({
             list.push(pis5);
             var pis6 = new Pis(5, "Tarragona", 5, 300, 90, "Pis", "Pis ideal per a grans grups d'estudiants ");
             list.push(pis6);
-            var pis7 = new Pis(6, "Barcelona", 2, 120, 50, "Pis", "Pis situat en el centre de la ciutat ben comunicat amb transport public");
+            var pis7 = new Pis(6, "Girona", 1, 90, 30, "Pis", "Pis individual amb un cost petit però a prop de la facultat de Matematiques");
             list.push(pis7);
-            var pis8 = new Pis(7, "Barcelona", 2, 120, 50, "Pis", "Pis situat en el centre de la ciutat ben comunicat amb transport public");
+            var pis8 = new Pis(7, "Barcelona", 3, 480, 60, "Pis", "Pis per a tres persones, situat a Plaça Universitat, just al costat de la UB");
             list.push(pis8);
-            var pis9 = new Pis(8)
 
             return list;
         },
