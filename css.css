@@ -8,7 +8,7 @@ body {
     display: flex;
     background: #be6b5b;
     width: 100%;
-    height: 90px;
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@ body {
     display: flex;
     background: #be6b5b;
     width: 100%;
-    height: 90px;
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@ body {
     height: 400px;
     width: 500px;
     margin: auto auto auto auto;
-    background-color: #e5d0ba;
+    background-color: rgba(229, 208, 186, 0.8);
     border:rgb(0, 0, 0) 5px solid;
     align-items: center;
     opacity: 100%;
@@ -48,7 +48,6 @@ body {
 }
 
 .registerContent {
-    position: fixed;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -56,11 +55,10 @@ body {
     height: 600px;
     width: 500px;
     margin: auto auto auto auto;
-    background-color: #e5d0ba;
+    background-color: rgba(229, 208, 186, 0.8);
     border:rgb(0, 0, 0) 5px solid;
     align-items: center;
     opacity: 100%;
-    position: relative;
     z-index: 1;
     border-radius: 15px;
 }
@@ -131,36 +129,37 @@ body {
 }
 
 .b1 {
-    flex: 33.3%;
+    
     border-style: none;
     background-color: #ead1dc;
-    border-radius: 7px;
-    width: 110px;
-    height: 30px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.b2 {
-    flex: 33.3%;
-    border-style: none;
-    background-color: #ead1dc;
-    border-radius: 7px;
-    width: 110px;
-    height: 30px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.b3 {
-    flex: 33.3%;
-    border-style: none;
-    background-color: #76afa4;
     border-radius: 7px;
     width: auto;
     height: 30px;
     cursor: pointer;
     font-weight: 700;
+    font-size: small;
+}
+
+.b2 {
+    border-style: none;
+    background-color: #ead1dc;
+    border-radius: 7px;
+    width: auto;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: small;
+}
+
+.b3 {
+    border-style: none;
+    background-color: #76afa4;
+    border-radius: 7px;
+    width:auto;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: small;
 }
 
 .col {
@@ -169,18 +168,17 @@ body {
 
 .cercador {
     flex-direction: column;
-    margin-top: 90px;
+    margin-top: auto;
     display: flex;
     background-image: url('./fondo2.jpg');
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 88vh;
+    width: auto;
+    height: 100vh;
     align-items: center;
-    flex-direction: column;
 }
 
 .cuadrat {
