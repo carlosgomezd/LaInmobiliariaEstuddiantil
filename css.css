@@ -61,7 +61,7 @@ div.wrapper {
     align-items: center;
     height: 600px;
     width: 500px;
-    margin: auto auto auto auto;
+    margin: center center center center;
     background-color: rgba(229, 208, 186, 0.8);
     border:rgb(0, 0, 0) 5px solid;
     align-items: center;
