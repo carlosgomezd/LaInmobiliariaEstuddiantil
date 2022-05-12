@@ -17,8 +17,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
-    <script>  window.onload = crearPisos();</script>
     <div class="container">
         <div class="header">
             <div style="display:flex; flex: 80">
@@ -41,78 +39,9 @@
             </div>
         </div>
     </div>
-
     <div class="cercador">
         <div class="mainContent">
-            <div style="display: flex; flex-direction:column;">
-                <h2
-                    style="text-align: center; flex-direction: column; align-items: center; justify-content: center; font-weight: 700;">
-                    Troba el millor pis per a tu!</h2>
-                <br>
-                <div
-                    style="display: flex; justify-content: center; column-gap:25px; margin: auto auto auto auto; align-items: center;">
-                    <select class="boto" style="background-color: white; text-align: center;" title="ciutats"
-                        id="ciutat">
-                        <option selected disabled>Població</option>
-                        <option value="bcn" id="bcn">Barcelona</option>
-                        <option value="gir" id="gir">Girona</option>
-                        <option value="llei" id="llei">Lleida</option>
-                        <option value="tar" id="tar">Tarragona</option>
-                    </select>
-                    <select class="boto" style="background-color: white; text-align: center;" title="Tipus d'immoble"
-                        id="immoble">
-                        <option selected disabled>Immoble</option>
-                        <option value="casa" id="casa">Casa</option>
-                        <option value="pis" id="pis">Pis</option>
-                    </select>
-                    <select class="boto" style="background-color: white; text-align: center;" title="Numero habitacions"
-                        id="habitacio">
-                        <option selected disabled>Habitacions</option>
-                        <option value="1" id="1">1</option>
-                        <option value="2" id="2">2</option>
-                        <option value="3" id="3">3</option>
-                        <option value="4" id="4">4</option>
-                        <option value="5" id="5">5</option>
-                    </select>
-                    <div>
-                        <div>
-                            <lable>Preu</lable>
-                            <br>
-                            <input type="range" min="1" max="1500" value="500" id="pr" style="display: inline-block;">
-                            <br>
-                            <span id="preu"></span>€
-                            <script>
-                                getValorPreu();
-                            </script>
-                        </div>
-                        <br>
-                        <div>
-                            <lable>Superficie</lable>
-                            <br>
-                            <input type="range" min="1" max="250" value="125" id="sup" style="display: inline-block;">
-                            <br>
-                            <span id="m2"></span>m<sup>2</sup>
-                            <script>
-                                getValorSuperficie();
-                            </script>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-outline-primary" type="button"
-                        onclick="getBusqueda(), window.location.href='./cercat.html'">
-                        Buscar
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="tipusCerca">
-            <li style="list-style: none;"><a class="cerca" href="./main.html">Cerca clàssica</a>
-            </li>
-            <li style="list-style: none;"><a class="cerca" href="./cerca1.html">Cerca per
-                    paraules</a></li>
-            <li style="list-style: none;"><a class="cerca" href="./cerca2.html">Cerques
-                    freqüents</a></li>
+            <button onclick="showPisos(), showBusqueda()">Crear pisos</button>
         </div>
     </div>
     <div class="ajuda">
