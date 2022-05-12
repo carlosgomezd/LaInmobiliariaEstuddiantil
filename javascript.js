@@ -16,7 +16,7 @@ function getBusqueda() {
   ) {
     alert("Error hi ha algun paràmetre no vàlid. (⊙.☉)7 ");
   } else {
-    window.location.href = "./cercat.html";
+    window.location.href = "./Resultado_cerca.html";
   }
   var busqueda = new pisos(-1, strCiutat, strImm, strHab, preu, sup);
   localStorage["busq"] = JSON.stringify(busqueda);
