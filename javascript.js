@@ -9,12 +9,16 @@ function getBusqueda() {
   var strHab = hab.options[hab.selectedIndex].text;
   var preu = document.getElementById("pr").value;
   var sup = document.getElementById("sup").value;
+  if (
+    strCiutat === "Població" ||
+    strImm === "Immoble" ||
+    strHab === "Habitacions"
+  ) {
+    alert("Error hi ha algun paràmetre no vàlid. (⊙.☉)7 ");
+  } else {
+    window.location.href = "./cercat.html";
+  }
   var busqueda = new pisos(-1, strCiutat, strImm, strHab, preu, sup);
-  localStorage["ciut"] = strCiutat;
-  localStorage["imm"] = strImm;
-  localStorage["hb"] = strHab;
-  localStorage["pr"] = preu;
-  localStorage["m2"] = sup;
   localStorage["busq"] = JSON.stringify(busqueda);
 }
 
@@ -36,6 +40,39 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.preu = preu;
   this.superficie = superficie;
 }
+
+function func() {
+  console.log(JSON.parse(localStorage["pis1"]).ciutat);
+  console.log(JSON.parse(localStorage["busq"]).ciutat);
+  var pis = JSON.parse(localStorage["pis1"]);
+  var b = JSON.parse(localStorage["busq"]);
+  console.log(pis.ciutat.localeCompare(b.ciutat));
+}
+
+function compararCerca() {
+  const lst = [];
+  for (var i = 0; i < 10; i++) {
+    var pis = JSON.parse(localStorage["pis" + (i + 1)]);
+    var b = JSON.parse(localStorage["busq"]);
+    var ci = pis.ciutat.localeCompare(b.ciutat);
+    var im = pis.immoble.localeCompare(b.immoble);
+    if (
+      ci == 0 &&
+      im == 0 &&
+      pis.habitacions == b.habitacions &&
+      pis.preu <= b.preu &&
+      pis.superficie <= b.superficie
+    ) {
+      console.log("Comparat!");
+      lst.push(pis);
+      localStorage["resultat" + (i + 1)] = JSON.stringify(lst[i]);
+    }
+  }
+  for (var j = 0; j < lst.length; j++) {
+    console.log(lst[j]);
+  }
+}
+
 function auxCrearPisos() {
   if (localStorage["exec"] == false) crearPisos();
 }
@@ -64,7 +101,7 @@ function crearPisos() {
 
   for (var i = 0; i < piso.length; i++) {
     localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
-    console.log(piso[i]);
+    console.log(JSON.parse(localStorage["pis" + (i + 1)]));
   }
   localStorage["exec"] = true;
 }
