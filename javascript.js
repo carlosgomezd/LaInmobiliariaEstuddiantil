@@ -1,21 +1,4 @@
-// var ciut = localStorage["ciut"];
-// var pr = localStorage["pr"];
-// var im = localStorage["imm"];
-// var hb = localStorage["hb"];
-// var m2 = localStorage["m2"];
-// var busq = localStorage["busq"];
-let exec = false;
-// var ex = localStorage["exec"]
-// var pis1 = localStorage["pis1"];
-// var pis2 = localStorage["pis2"];
-// var pis3 = localStorage["pis3"];
-// var pis4 = localStorage["pis4"];
-// var pis5 = localStorage["pis5"];
-// var pis6 = localStorage["pis6"];
-// var pis7 = localStorage["pis7"];
-// var pis8 = localStorage["pis8"];
-// var pis9 = localStorage["pis9"];
-// var pis10 = localStorage["pis10"];
+localStorage["exec"] = false;
 
 function getBusqueda() {
   var ciutat = document.getElementById("ciutat");
@@ -54,7 +37,7 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.superficie = superficie;
 }
 function auxCrearPisos() {
-  if (exec == false) crearPisos();
+  if (localStorage["exec"] == false) crearPisos();
 }
 
 function crearPisos() {
@@ -83,7 +66,7 @@ function crearPisos() {
     localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
     console.log(piso[i]);
   }
-  exec = true;
+  localStorage["exec"] = true;
 }
 
 function getValorPreu() {
