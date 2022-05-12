@@ -1,4 +1,46 @@
 localStorage["exec"] = false;
+const numero_pisos = 10;
+
+function canviarText1() {
+  var b = JSON.parse(localStorage["resultat1"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im1").innerHTML = i;
+  document.getElementById("_hab1").innerHTML = h;
+  document.getElementById("_p1").innerHTML = p;
+  document.getElementById("_c1").innerHTML = c;
+  document.getElementById("_s1").innerHTML = s;
+}
+function canviarText2() {
+  var b = JSON.parse(localStorage["resultat2"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im2").innerHTML = i;
+  document.getElementById("_hab2").innerHTML = h;
+  document.getElementById("_p2").innerHTML = p;
+  document.getElementById("_c2").innerHTML = c;
+  document.getElementById("_s2").innerHTML = s;
+}
+
+function canviarText3() {
+  var b = JSON.parse(localStorage["resultat3"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im3").innerHTML = i;
+  document.getElementById("_hab3").innerHTML = h;
+  document.getElementById("_p3").innerHTML = p;
+  document.getElementById("_c3").innerHTML = c;
+  document.getElementById("_s3").innerHTML = s;
+}
 
 function getBusqueda() {
   var ciutat = document.getElementById("ciutat");
@@ -8,16 +50,17 @@ function getBusqueda() {
   var hab = document.getElementById("habitacio");
   var strHab = hab.options[hab.selectedIndex].text;
   var preu = document.getElementById("pr").value;
-  var sup = document.getElementById("sup").value;
-  if (
-    strCiutat === "Població" ||
-    strImm === "Immoble" ||
-    strHab === "Habitacions"
-  ) {
-    alert("Error hi ha algun paràmetre no vàlid. (⊙.☉)7 ");
-  } else {
-    window.location.href = "./Resultado_cerca.html";
+  var sup = "";
+  if (strCiutat === "Població") {
+    strCiutat = "";
   }
+  if (strImm === "Immoble") {
+    strImm = "";
+  }
+  if (strHab === "Habitacions") {
+    strHab = "";
+  }
+  window.location.href = "./Resultado_cerca.html";
   var busqueda = new pisos(-1, strCiutat, strImm, strHab, preu, sup);
   localStorage["busq"] = JSON.stringify(busqueda);
 }
@@ -27,7 +70,7 @@ function showBusqueda() {
 }
 
 function showPisos() {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < numero_pisos; i++) {
     console.log(JSON.parse(localStorage["pis" + (i + 1)]));
   }
 }
@@ -41,21 +84,52 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.superficie = superficie;
 }
 
-function func() {
-  console.log(JSON.parse(localStorage["pis1"]).ciutat);
-  console.log(JSON.parse(localStorage["busq"]).ciutat);
-  var pis = JSON.parse(localStorage["pis1"]);
-  var b = JSON.parse(localStorage["busq"]);
-  console.log(pis.ciutat.localeCompare(b.ciutat));
+// function func() {
+//   console.log(JSON.parse(localStorage["pis1"]).ciutat);
+//   console.log(JSON.parse(localStorage["busq"]).ciutat);
+//   var pis = JSON.parse(localStorage["pis1"]);
+//   var b = JSON.parse(localStorage["busq"]);
+//   console.log(pis.ciutat.localeCompare(b.ciutat));
+// }
+
+function hide() {
+  var h2 = document.getElementById("hide2");
+  var h3 = document.getElementById("hide3");
+  if (localStorage["nRes"] === 3) {
+    h2.style.display = "block";
+    h3.style.display = "block";
+  }
+  if (localStorage["nRes"] === 2) {
+    h2.style.display = "block";
+    h3.style.display = "none";
+  }
+  if (localStorage["nRes"] === 1) {
+    h2.style.display = "none";
+    h3.style.display = "none";
+  }
 }
 
 function compararCerca() {
   const lst = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < numero_pisos; i++) {
     var pis = JSON.parse(localStorage["pis" + (i + 1)]);
     var b = JSON.parse(localStorage["busq"]);
+    if (b.ciutat.localeCompare("") == 0) {
+      b.ciutat = pis.ciutat;
+    }
+    if (b.immoble.localeCompare("") == 0) {
+      b.immoble = pis.immoble;
+    }
+    if (b.habitacions == "") {
+      b.habitacions = pis.habitacions;
+    }
+    if (b.superficie == "") {
+      b.superficie = pis.superficie;
+    }
+
     var ci = pis.ciutat.localeCompare(b.ciutat);
     var im = pis.immoble.localeCompare(b.immoble);
+
     if (
       ci == 0 &&
       im == 0 &&
@@ -63,18 +137,19 @@ function compararCerca() {
       pis.preu <= b.preu &&
       pis.superficie <= b.superficie
     ) {
-      console.log("Comparat!");
       lst.push(pis);
-      localStorage["resultat" + (i + 1)] = JSON.stringify(lst[i]);
     }
   }
   for (var j = 0; j < lst.length; j++) {
     console.log(lst[j]);
+    localStorage["resultat" + (j + 1)] = JSON.stringify(lst[j]);
   }
+  localStorage["nRes"] = lst.length;
 }
 
 function auxCrearPisos() {
-  if (localStorage["exec"] == false) crearPisos();
+  if (localStorage["exec"] == false && numero_pisos !== localStorage["nPisos"])
+    crearPisos();
 }
 
 function crearPisos() {
@@ -82,7 +157,7 @@ function crearPisos() {
   const imm = ["Pis", "Casa"];
 
   const piso = [];
-  for (var j = 1; j <= 10; j++) {
+  for (var j = 1; j <= numero_pisos; j++) {
     const ciuRandom = Math.floor(Math.random() * ciu.length);
     const immRandom = Math.floor(Math.random() * imm.length);
     const habRandom = Math.floor(Math.random() * 5) + 1;
@@ -103,6 +178,7 @@ function crearPisos() {
     localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
     console.log(JSON.parse(localStorage["pis" + (i + 1)]));
   }
+  localStorage["nPisos"] = piso.length;
   localStorage["exec"] = true;
 }
 
