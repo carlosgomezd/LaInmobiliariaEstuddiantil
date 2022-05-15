@@ -1,91 +1,113 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="cat">
 <meta charset="UTF-8" />
 
 <head>
-    <title>WEB FHiC</title>
+    <title>La Inmobiliaria Estudiantil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css.css">
     <script src="./javascript.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <div class="col">
-            <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
-                    src="./logo.png" alt="logo">
-                <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-            </a>
-        </div>
-        <nav>
-            <div class="buttons">
-                <select class="b1">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <div class="container">
+
+        <div class="header">
+            <div style="display:flex; flex: 80">
+                <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                        src="./logo.png" alt="logo">
+                    <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+                </a>
+            </div>
+            <div class="btn-group">
+                <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
+                    style="background-color: #76afa4;">📌 Posa
+                    el teu anunci!</button>
+                <button class="boto" type="button" onclick="window.location.href='./login.html'">👤 Incia
+                    sessió</button>
+                <select class="boto" style="height: 26px;">
                     <option value="cat">Català</option>
                     <option value="cast">Castellano</option>
                     <option value="eng">English</option>
                 </select>
             </div>
-            <div class="buttons">
-                <button class="b2" type="button" onclick="window.location.href='#'"><img class="usuario"
-                        src="./usuario24.png">Incia sessió</button>
-            </div>
-            <div class="buttons">
-                <button class="b3" type="button" onclick="window.location.href='#'"><img class="chincheta"
-                        src="./icono_cincheta_24.png">Posa
-                    el teu anunci!</button>
-            </div>
-        </nav>
+        </div>
     </div>
     <div class="cercador">
-        <div class="cuadrat">
-            <div style="display: flex;">
-                <h1 style=" text-align: center; opacity: 100%">La millor opció per a tu!</h1>
+        <div class="mainContent">
+            <div>
+                <h2
+                    style="text-align: center; flex-direction: column; align-items: center; justify-content: center; font-weight: 700;">
+                    Troba el millor pis per a tu!</h2>
+                <br>
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="Cerca" aria-label="Cerca"
+                        aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary"> 🔍</button>
+                </div>
+                <p style="font-weight: 100; font-size:small">Exemples: <a class="exemples" href="#">Pis amb dos
+                        habitacions Barcelona</a>, <a class="exemples" href="#">Apartaments amb piscina</a>, <br><a
+                        class="exemples" href="#">Pis a Girona</a>...</p>
             </div>
-
-            <div class="opcions">
-                <input type="text" placeholder="Cerca...">
-            </div>
-            <div style="column-count: 3; column-gap: 50px; align-self:auto;">
-
-            </div>
-        </div>
-        <div
-            style="column-count: 3; column-gap: 50px; margin-bottom: 50px; color: #e5d0ba;  border-radius:  20px; column-rule:  1px solid #e5d0ba; opacity: 0.8;">
-            <li style="list-style: none;"><a href="./main.html" style="color:#e5d0ba">Cerca clàssica</a></li>
-            <li style="list-style: none;"><a href="./cerca1.html" style="color:#e5d0ba">Cerca per paraules</a></li>
-            <li style="list-style: none;"><a href="./cerca2.html" style="color:#e5d0ba">Cerques freqüents</a></li>
 
         </div>
+        <div class="tipusCerca">
+            <li style="list-style: none;"><a class="cerca" href="./main.html">Cerca clàssica</a>
+            </li>
+            <li style="list-style: none;"><a class="cerca" href="./cerca1.html">Cerca per
+                    paraules</a></li>
+            <li style="list-style: none;"><a class="cerca" href="./cerca2.html">Cerques
+                    freqüents</a></li>
+        </div>
     </div>
-
-    <div class="baix"><img class="img" src="./logo marronet.png" alt="logo"></div>
-    <div class="lista">
-
-        <ul style="list-style: none;">
-            <h3 style="color: black; text-align: center;">Ajuda</h3>
-            <hr class="hr">
-            <li><a class="listElem" href="#" title="Preguntes freqüents">Preguntes freqüents</a></li>
-            <li><a class="listElem" href="#" title="Contactan'ns">Contactan'ns</a></li>
-            <li><a class="listElem" href="#" title="Política de privacitat">Política de privacitat</a></li>
-            <li><a class="listElem" href="#" title="Política de les cookies">Política de les cookies</a></li>
-            <li><a class="listElem" href="#" title="Condicions generals">Condicions generals</a></li>
-        </ul>
+    <div class="ajuda">
+        <img src="./logo marronet.png" alt="logo" height="44px">
     </div>
-    <div class=" lista">
-        <ul style="list-style: none;">
-            <h3 style="color: black; text-align: center;">Sobre nosaltres</h3>
-            <hr class="hr">
-            <li><a class="listElem" href="#" title="Qui som">Qui som</a></li>
-            <li><a class="listElem" href="#" title="Qui fem">Que fem</a></li>
-            <li><a class="listElem" href="#" title="Localitza'ns">Localitza'ns</a></li>
-        </ul>
-    </div>
-    <div class="lista" style="float: right;">
-        <div class="redes"><a href="www.facebook.es"><img style="display: inline-block;"
-                    src="./icons8-facebook-48.png"></a></div>
-        <div class="redes"><a href="www.instagram.es"><img style="display: inline-block; height: 44px;"
-                    src="./icons8-instagram-48.png"></a></div>
-        <div class="redes"><a href="www.twitter.es"><img style="display: inline-block;"
-                    src="./icons8-twitter-48.png"></a></div>
+    <div style="display: flex; column-count:2; flex: 80%">
+        <div class="llista">
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Ajuda</h3>
+                <hr>
+                <li><a class="listElem" href="#" title="Preguntes freqüents"
+                        style="text-decoration: none; color: #1d1c1b;">Preguntes
+                        freqüents</a></li>
+                <li><a class="listElem" href="#" title="Contactan'ns"
+                        style="text-decoration: none;color: #1d1c1b;">Contactan'ns</a></li>
+                <li><a class="listElem" href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        privacitat</a></li>
+                <li><a class="listElem" href="#" title="Política de les cookies"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        les cookies</a></li>
+                <li><a class="listElem" href="#" title="Condicions generals"
+                        style="text-decoration: none;color: #1d1c1b;">Condicions
+                        generals</a></li>
+            </ul>
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Sobre nosaltres</h3>
+                <hr>
+                <li><a href="#" title="Preguntes freqüents" style="text-decoration: none; color: #1d1c1b;">Qui som</a>
+                </li>
+                <li><a href="#" title="Contactan'ns" style="text-decoration: none;color: #1d1c1b;">Que fem</a></li>
+                <li><a href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Localitza'ns</a></li>
+            </ul>
+            <ul>
+                <h3 style="color: black; text-align: center;">Xarxes Socials</h3>
+                <hr>
+                <a class="redes" href="www.facebook.es"><img style="height: 55px;" src="./icons8-facebook-48.png"></a>
+                <a class="redes" href="www.instagram.es"><img src="./icons8-instagram-48.png"></a>
+                <a class="redes" href="www.twitter.es"><img style="height: 55px;" src="./icons8-twitter-48.png"></a>
+            </ul>
+        </div>
     </div>
 </body>
 

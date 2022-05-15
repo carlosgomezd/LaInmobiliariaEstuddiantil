@@ -1,17 +1,201 @@
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {onScrollheader()};
+localStorage["exec"] = false;
+const numero_pisos = 10;
 
-// Get the header
-var header = document.getElementById("myHeader");
+function canviarText1() {
+  var b = JSON.parse(localStorage["resultat1"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im1").innerHTML = i;
+  document.getElementById("_hab1").innerHTML = h;
+  document.getElementById("_p1").innerHTML = p;
+  document.getElementById("_c1").innerHTML = c;
+  document.getElementById("_s1").innerHTML = s;
+}
+function canviarText2() {
+  var b = JSON.parse(localStorage["resultat2"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im2").innerHTML = i;
+  document.getElementById("_hab2").innerHTML = h;
+  document.getElementById("_p2").innerHTML = p;
+  document.getElementById("_c2").innerHTML = c;
+  document.getElementById("_s2").innerHTML = s;
+}
 
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
+function canviarText3() {
+  var b = JSON.parse(localStorage["resultat3"]);
+  var c = b.ciutat;
+  var i = b.immoble;
+  var h = b.habitacions;
+  var p = b.preu;
+  var s = b.superficie;
+  document.getElementById("_im3").innerHTML = i;
+  document.getElementById("_hab3").innerHTML = h;
+  document.getElementById("_p3").innerHTML = p;
+  document.getElementById("_c3").innerHTML = c;
+  document.getElementById("_s3").innerHTML = s;
+}
 
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function onScrollheader() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
+function getBusqueda() {
+  var ciutat = document.getElementById("ciutat");
+  var strCiutat = ciutat.options[ciutat.selectedIndex].text;
+  var imm = document.getElementById("immoble");
+  var strImm = imm.options[imm.selectedIndex].text;
+  var hab = document.getElementById("habitacio");
+  var strHab = hab.options[hab.selectedIndex].text;
+  var preu = document.getElementById("pr").value;
+  var sup = "";
+  if (strCiutat === "Població") {
+    strCiutat = "";
   }
+  if (strImm === "Immoble") {
+    strImm = "";
+  }
+  if (strHab === "Habitacions") {
+    strHab = "";
+  }
+  window.location.href = "./Resultado_cerca.html";
+  var busqueda = new pisos(-1, strCiutat, strImm, strHab, preu, sup);
+  localStorage["busq"] = JSON.stringify(busqueda);
+}
+
+function showBusqueda() {
+  console.log(JSON.parse(localStorage["busq"]));
+}
+
+function showPisos() {
+  for (var i = 0; i < numero_pisos; i++) {
+    console.log(JSON.parse(localStorage["pis" + (i + 1)]));
+  }
+}
+
+function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
+  this.id = id;
+  this.ciutat = ciutat;
+  this.immoble = immoble;
+  this.habitacions = habitacions;
+  this.preu = preu;
+  this.superficie = superficie;
+}
+
+// function func() {
+//   console.log(JSON.parse(localStorage["pis1"]).ciutat);
+//   console.log(JSON.parse(localStorage["busq"]).ciutat);
+//   var pis = JSON.parse(localStorage["pis1"]);
+//   var b = JSON.parse(localStorage["busq"]);
+//   console.log(pis.ciutat.localeCompare(b.ciutat));
+// }
+
+function hide() {
+  var h2 = document.getElementById("hide2");
+  var h3 = document.getElementById("hide3");
+  if (localStorage["nRes"] === 3) {
+    h2.style.display = "block";
+    h3.style.display = "block";
+  }
+  if (localStorage["nRes"] === 2) {
+    h2.style.display = "block";
+    h3.style.display = "none";
+  }
+  if (localStorage["nRes"] === 1) {
+    h2.style.display = "none";
+    h3.style.display = "none";
+  }
+}
+
+function compararCerca() {
+  const lst = [];
+  for (var i = 0; i < numero_pisos; i++) {
+    var pis = JSON.parse(localStorage["pis" + (i + 1)]);
+    var b = JSON.parse(localStorage["busq"]);
+    if (b.ciutat.localeCompare("") == 0) {
+      b.ciutat = pis.ciutat;
+    }
+    if (b.immoble.localeCompare("") == 0) {
+      b.immoble = pis.immoble;
+    }
+    if (b.habitacions == "") {
+      b.habitacions = pis.habitacions;
+    }
+    if (b.superficie == "") {
+      b.superficie = pis.superficie;
+    }
+
+    var ci = pis.ciutat.localeCompare(b.ciutat);
+    var im = pis.immoble.localeCompare(b.immoble);
+
+    if (
+      ci == 0 &&
+      im == 0 &&
+      pis.habitacions == b.habitacions &&
+      pis.preu <= b.preu &&
+      pis.superficie <= b.superficie
+    ) {
+      lst.push(pis);
+    }
+  }
+  for (var j = 0; j < lst.length; j++) {
+    console.log(lst[j]);
+    localStorage["resultat" + (j + 1)] = JSON.stringify(lst[j]);
+  }
+  localStorage["nRes"] = lst.length;
+}
+
+function auxCrearPisos() {
+  if (localStorage["exec"] == false && numero_pisos !== localStorage["nPisos"])
+    crearPisos();
+}
+
+function crearPisos() {
+  const ciu = ["Barcelona", "Girona", "Tarragona", "Lleida"];
+  const imm = ["Pis", "Casa"];
+
+  const piso = [];
+  for (var j = 1; j <= numero_pisos; j++) {
+    const ciuRandom = Math.floor(Math.random() * ciu.length);
+    const immRandom = Math.floor(Math.random() * imm.length);
+    const habRandom = Math.floor(Math.random() * 5) + 1;
+    const prRandom = Math.floor(Math.random() * (1500 - 150 + 1)) + 150;
+    const supRandom = Math.floor(Math.random() * (250 - 15 + 1)) + 15;
+    var pis = new pisos(
+      j,
+      ciu[ciuRandom],
+      imm[immRandom],
+      habRandom,
+      prRandom,
+      supRandom
+    );
+    piso.push(pis);
+  }
+
+  for (var i = 0; i < piso.length; i++) {
+    localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
+    console.log(JSON.parse(localStorage["pis" + (i + 1)]));
+  }
+  localStorage["nPisos"] = piso.length;
+  localStorage["exec"] = true;
+}
+
+function getValorPreu() {
+  var slider = document.getElementById("pr");
+  var output = document.getElementById("preu");
+  output.innerHTML = slider.value;
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  };
+}
+
+function getValorSuperficie() {
+  var slider = document.getElementById("sup");
+  var output = document.getElementById("m2");
+  output.innerHTML = slider.value;
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  };
 }

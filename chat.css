@@ -5,8 +5,8 @@ body
     font-family: 'Open Sans', sans-serif;
     }
 .popup-box {
-   background-color: #ffffff;
-    border: 1px solid #b0b0b0;
+   background-color: rgba(229, 208, 186, 0.8);
+   border: rgb(0, 0, 0) 5px solid;
     bottom: 0;
     display: none;
     height: 415px;
@@ -41,9 +41,9 @@ body
     display: block !important;
 }
 .popup-box .popup-head {
-    background-color: #fff;
+    background-color: #be6b5b;
     clear: both;
-    color: #7b7b7b;
+    color: #000000;
     display: inline-table;
     font-size: 21px;
     padding: 7px 10px;
@@ -115,7 +115,7 @@ body
 
 
 .popup-box .popup-messages {
-    background: #3f9684 none repeat scroll 0 0;
+    background: rgba(229, 208, 186, 0.8) none repeat scroll 0 0;
     height: 275px;
     overflow: auto;
 }
@@ -133,8 +133,8 @@ body
     text-align: center;
 }
 .popup-messages abbr.timestamp {
-    background: #3f9684 none repeat scroll 0 0;
-    color: #fff;
+    background: rgba(229, 208, 186, 0.8) none repeat scroll 0 0;
+    color: rgb(0, 0, 0);
     padding: 0 11px;
 }
 
@@ -163,8 +163,8 @@ body
 }
 
 .popup-messages abbr.timestamp {
-    background: #3f9684  none repeat scroll 0 0;
-    color: #fff;
+    background: rgba(229, 208, 186, 0.8)  none repeat scroll 0 0;
+    color: rgb(0, 0, 0);
     padding: 0 11px;
 }
 .popup-messages .chat-box-single-line {
@@ -193,7 +193,7 @@ body
 	font-size: 15px;
 	font-weight: 600;
 	margin: 0 0 0 49px !important;
-	color: #fff;
+	color: rgb(0, 0, 0);
 	opacity: 0.9;
 }
 .popup-messages .direct-chat-info {
@@ -214,7 +214,7 @@ body
     width: 40px;
 }
 .direct-chat-reply-name {
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 15px;
     margin: 0 0 0 10px;
     opacity: 0.9;
