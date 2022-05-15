@@ -1,5 +1,9 @@
-localStorage["exec"] = false;
+
+//localStorage.setItem("dataActived","false");
 const numero_pisos = 10;
+const users = [];
+var num_users = 0;
+
 
 function canviarText1() {
   var b = JSON.parse(localStorage["resultat1"]);
@@ -84,13 +88,6 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.superficie = superficie;
 }
 
-// function func() {
-//   console.log(JSON.parse(localStorage["pis1"]).ciutat);
-//   console.log(JSON.parse(localStorage["busq"]).ciutat);
-//   var pis = JSON.parse(localStorage["pis1"]);
-//   var b = JSON.parse(localStorage["busq"]);
-//   console.log(pis.ciutat.localeCompare(b.ciutat));
-// }
 
 function hide() {
   var h2 = document.getElementById("hide2");
@@ -108,6 +105,7 @@ function hide() {
     h3.style.display = "none";
   }
 }
+
 
 function compararCerca() {
   const lst = [];
@@ -147,10 +145,23 @@ function compararCerca() {
   localStorage["nRes"] = lst.length;
 }
 
-function auxCrearPisos() {
-  if (localStorage["exec"] == false && numero_pisos !== localStorage["nPisos"])
-    crearPisos();
+
+function initData() {
+  if (localStorage.getItem("dataActived") === null){
+    console.log("ENTRA EN EL INITDATA");
+    localStorage["exec"] = false;
+    localStorage["dataActived"] = "false";
+    console.log("VALOR LOCAL STORAGE: " + JSON.parse(localStorage["exec"]));
+    if (localStorage.getItem("dataActived") === "false"){
+      console.log("INiciando datos");
+      crearPisos();
+      localStorage["exec"] = true;
+      localStorage["numUsers"] = "0";
+      localStorage["dataActived"] = "true";
+    }
+  }
 }
+
 
 function crearPisos() {
   const ciu = ["Barcelona", "Girona", "Tarragona", "Lleida"];
@@ -175,12 +186,14 @@ function crearPisos() {
   }
 
   for (var i = 0; i < piso.length; i++) {
-    localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
-    console.log(JSON.parse(localStorage["pis" + (i + 1)]));
+    localStorage.setItem("pis" + (i + 1), JSON.stringify(piso[i]));
+    //localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
+    //console.log(JSON.parse(localStorage["pis" + (i + 1)]));
   }
-  localStorage["nPisos"] = piso.length;
-  localStorage["exec"] = true;
+  //localStorage["nPisos"] = piso.length;
+  localStorage.setItem("nPisos", piso.length.toString());
 }
+
 
 function getValorPreu() {
   var slider = document.getElementById("pr");
@@ -191,6 +204,7 @@ function getValorPreu() {
   };
 }
 
+
 function getValorSuperficie() {
   var slider = document.getElementById("sup");
   var output = document.getElementById("m2");
@@ -198,4 +212,111 @@ function getValorSuperficie() {
   slider.oninput = function () {
     output.innerHTML = this.value;
   };
+}
+
+
+function User(name, surname, username, password){
+  this.name = name;
+  this.surname = surname;
+  this.username = username;
+  this.password = password;
+  this.saved_pisos = [];
+}
+
+
+function registerUser () {
+  var name = document.getElementById("register_user_name").value;
+  var surname = document.getElementById("register_user_surname").value;
+  var username = document.getElementById("register_user_mail").value.toLowerCase();
+  var password = document.getElementById("register_user_password").value;
+  var r_password = document.getElementById("register_user_password_repeat").value;
+
+  // Comprovem si falta algun camp
+  if (name && surname && username  && password && r_password){
+
+    if (password === r_password){
+    
+      if (this.getUser(username) === null){
+        var user = new User (name, surname, username, password, r_password);
+
+        var numUser = parseInt(localStorage.getItem("numUsers")) + 1;
+        localStorage["numUsers"] = numUser.toString();
+        localStorage.setItem("user" + numUser.toString(), JSON.stringify(user));
+
+        console.log("NUMERO DE CLIENTS: " + localStorage.getItem("numUsers"));
+        window.location.href="./main.html";
+      }
+
+      else{
+        window.alert("Ja existeix un usuari amb aquest compte");
+        window.location.href="./register.html";
+      }
+    }
+    else{
+      window.alert("Els contrasenyes introduides no coincideixen");
+      window.location.href="./register.html";
+    }
+  }
+  else{
+    window.alert("Algun dels camps no es troba complert");
+    window.location.href="./register.html";
+  }
+}
+
+function existUser (username, password) {
+  console.log("Usuaris: " + localStorage["numUsers"]);
+  var numUsuaris = parseInt(localStorage.getItem("numUsers"));
+  
+  for (let i = 0; i < numUsuaris; i++){
+    var user = JSON.parse(localStorage.getItem("user" + (i + 1).toString()));
+
+    if (user.username === username && user.password === password){
+      return true;
+    }
+    
+  }
+
+  return false;
+}
+
+
+/**
+ * Aquesta funció ens recupera l'usuari que el seu nom coincideixi
+ * @param {} username 
+ * @returns 
+ */
+function getUser (username) {
+  var numUsuaris = parseInt(localStorage.getItem("numUsers"));
+
+  for (let i = 0; i < numUsuaris; i++){
+    var user = JSON.parse(localStorage.getItem("user" + (i + 1).toString()));
+
+    if (user.username === username){
+      return user;
+    }
+  }
+
+  return null;
+}
+
+
+/**
+ * Realitza el logun de l'usuari introduit al login.html
+ */
+function login_user () {
+  username = document.getElementById("user_mail").value;
+  password = document.getElementById("user_password").value;
+
+  if (this.existUser(username, password)){
+
+
+    localStorage.setItem("actualUser", JSON.stringify(this.getUser(username)));
+    localStorage.setItem("initUser", "true"); 
+    window.location.href="./main.html";
+    localStorage["exec"] = true;
+  }
+  else{
+    window.alert("L'usuari introduit no existeix");
+    window.location.href="./login.html";
+  }
 }

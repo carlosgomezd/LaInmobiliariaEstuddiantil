@@ -17,7 +17,10 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <script>auxCrearPisos();</script>
+    <script>
+        initData();
+    </script>
+    
     <div class="container">
         <div class="header">
             <div style="display:flex; flex: 80">
@@ -27,16 +30,20 @@
                 </a>
             </div>
             <div class="btn-group">
+
                 <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
                     style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
-                <button class="boto" type="button" onclick="window.location.href='./login.html'">👤 Incia
+
+                <button class="boto"  id="loginButton" type="button" onclick="window.location.href='./login.html'">👤 Incia
                     sessió</button>
+
                 <select class="boto" style="height: 26px;">
                     <option value="cat">Català</option>
                     <option value="cast">Castellano</option>
                     <option value="eng">English</option>
                 </select>
+
             </div>
         </div>
     </div>
