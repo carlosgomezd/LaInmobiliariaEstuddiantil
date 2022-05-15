@@ -144,7 +144,7 @@ body
 	vertical-align: top !important;
 }
 .chat-header-button {
-    background: transparent none repeat scroll 0 0;
+    background: red none repeat scroll 0 0;
     border: 1px solid #636364;
     border-radius: 50%;
     font-size: 14px;
