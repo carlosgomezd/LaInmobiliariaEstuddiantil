@@ -245,6 +245,7 @@ function registerUser () {
 
         console.log("NUMERO DE CLIENTS: " + localStorage.getItem("numUsers"));
         window.location.href="./main.html";
+        localStorage["actualUser"] = JSON.stringify(user);
       }
 
       else{
@@ -313,6 +314,7 @@ function login_user () {
     localStorage.setItem("actualUser", JSON.stringify(this.getUser(username)));
     localStorage.setItem("initUser", "true"); 
     window.location.href="./main.html";
+    document.getElementById("loginButton").innerHTML = 'El meu perfil';
     localStorage["exec"] = true;
   }
   else{
