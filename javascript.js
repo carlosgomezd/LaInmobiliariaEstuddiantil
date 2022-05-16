@@ -70,6 +70,9 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
     "	Joan Miró",
   ];
   const atr = ["Piscina", "Jardi", "Àtic", "Terrasa"];
+  var list_images = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 
+  'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 
+  'photo9.jpg', 'photo10.jpg']
 
   this.id = id;
   this.ciutat = ciutat;
@@ -77,6 +80,11 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.habitacions = habitacions;
   this.preu = preu;
   this.superficie = superficie;
+
+  var value = Math.floor(Math.random() * list_images.length)
+  this.image_url = list_images[value];
+  list_images.splice(value);
+
   this.carrer = carrer[Math.floor(Math.random() * carrer.length)];
   this.atrb = atr[Math.floor(Math.random() * atr.length)];
 }
@@ -207,10 +215,8 @@ function compararCerca() {
 
 function initData() {
   if (localStorage.getItem("dataActived") === null) {
-    console.log("ENTRA EN EL INITDATA");
     localStorage["exec"] = false;
     localStorage["dataActived"] = "false";
-    console.log("VALOR LOCAL STORAGE: " + JSON.parse(localStorage["exec"]));
     if (localStorage.getItem("dataActived") === "false") {
       console.log("Iniciando datos");
       crearPisos();
@@ -297,7 +303,7 @@ function registerUser() {
 
         var numUser = parseInt(localStorage.getItem("numUsers")) + 1;
         localStorage["numUsers"] = numUser.toString();
-        localStorage.setItem("user" + numUser.toString(), JSON.stringify(user));
+        localStorage.setItem(username, JSON.stringify(user));
 
         console.log("NUMERO DE CLIENTS: " + localStorage.getItem("numUsers"));
         window.location.href = "./main.html";
@@ -317,18 +323,7 @@ function registerUser() {
 }
 
 function existUser(username, password) {
-  console.log("Usuaris: " + localStorage["numUsers"]);
-  var numUsuaris = parseInt(localStorage.getItem("numUsers"));
-
-  for (let i = 0; i < numUsuaris; i++) {
-    var user = JSON.parse(localStorage.getItem("user" + (i + 1).toString()));
-
-    if (user.username === username && user.password === password) {
-      return true;
-    }
-  }
-
-  return false;
+  return localStorage.getItem(username) !== null;
 }
 
 /**
@@ -337,24 +332,14 @@ function existUser(username, password) {
  * @returns
  */
 function getUser(username) {
-  var numUsuaris = parseInt(localStorage.getItem("numUsers"));
-
-  for (let i = 0; i < numUsuaris; i++) {
-    var user = JSON.parse(localStorage.getItem("user" + (i + 1).toString()));
-
-    if (user.username === username) {
-      return user;
-    }
-  }
-
-  return null;
+  return localStorage.getItem(username);
 }
 
 /**
  * Realitza el logun de l'usuari introduit al login.html
  */
 function login_user() {
-  username = document.getElementById("user_mail").value;
+  username = document.getElementById("user_mail").value.toLowerCase();
   password = document.getElementById("user_password").value;
 
   if (this.existUser(username, password)) {
@@ -367,4 +352,79 @@ function login_user() {
     window.alert("L'usuari introduit no existeix");
     window.location.href = "./login.html";
   }
+}
+
+
+function manageLogin () {
+
+  console.log("Inside ManageLogin");
+  // En cas que no hi hagi cap usuari registrat, anirem a formualri de login
+  if (localStorage.getItem("actualUser") === null){
+    console.log("Charging login.html");
+    window.location.href="./login.html";
+  }
+
+  // En cas contrari, anem al menu de l'usuari
+  else{
+    window.location.href="./menuUsuari.html";
+  }
+}
+
+
+function closeSession () {
+  console.log("Tancant sessió");
+
+  // GUardem la variable actualUser a null per evitar que carregui les dades de l'usuari anterior.
+  localStorage.removeItem("actualUser");
+  window.location.href="./main.html";
+}
+
+
+function goToBustia () {
+  console.log("Accedint a la bustia");
+  window.location.href="./messages.html";
+}
+
+
+function goToInmobles () {
+  console.log("Accedint als inmobles llogats");
+  window.location.href="./inmoblesLlogats.html";
+}
+
+
+/**
+ * Aquesta funció s'encarrega de recuperar la llista de pisos llogats per un usuari
+ */
+function getListFromUser(username) {
+  var user = JSON.parse(this.getUser(username));
+  console.log("LONGITUD LISTA: " + user.saved_pisos.length);
+  return user.saved_pisos;
+}
+
+
+function addPisos (username){
+  var user = JSON.parse(this.getUser(username));
+  console.log("NOM DE L'USUARI: " + user.username.toString());
+  
+  var pis1 = JSON.parse(localStorage.getItem("pis1"));
+  console.log("URL:" + pis1.image_url.toString());
+  var pis2 = JSON.parse(localStorage.getItem("pis2"));
+  var pis3 = JSON.parse(localStorage.getItem("pis3"));
+  var pis4 = JSON.parse(localStorage.getItem("pis4"));
+
+  var list = [];
+  list.push(pis1);
+  list.push(pis2);
+  list.push(pis3);
+  list.push(pis4);
+
+  user.saved_pisos = list;
+  localStorage[username] = JSON.stringify(user);
+}
+
+function setImage () {
+  var image = document.getElementById("image");
+  image.id = Math.random().toString();
+  var urlImage = list_images[Math.floor(Math.random() * list_images.length)];
+  image.src = urlImage;
 }
