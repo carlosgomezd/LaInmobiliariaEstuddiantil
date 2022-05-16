@@ -19,6 +19,8 @@ function canviarText() {
   document.getElementById("_s").innerHTML = s;
   document.getElementById("_car").innerHTML = car;
   document.getElementById("_a").innerHTML = a;
+  document.getElementById("_a2").innerHTML = a;
+  document.getElementById("_hab2").innerHTML = hab;
 }
 
 function getBusqueda() {
@@ -82,7 +84,7 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
 }
 
 function crearDivAux() {
-  if(localStorage["nRes"]== 0){
+  if (localStorage["nRes"] == 0) {
     alert("No hi ha resultats per a mostrar");
     window.location.href = "./main.html";
   }
@@ -154,18 +156,6 @@ function crearDiv(valor, i) {
   class_cart.appendChild(carrer);
   //class_cart2.appendChild(atributs);
 }
-
-// function hide() {
-//   var h2 = document.getElementById("hide2");
-//   var h3 = document.getElementById("hide3");
-//   if (localStorage["nRes"] == 1) {
-//     h2.style.display = "none";
-//     h3.style.display = "none";
-//   }
-//   if (localStorage["nRes"] == 2) {
-//     h3.style.display = "none";
-//   }
-// }
 
 function compararCerca() {
   const lst = [];
