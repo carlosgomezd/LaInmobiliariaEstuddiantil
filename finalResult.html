@@ -5,7 +5,7 @@
 <!--Capçalera de la pagina-->
 
 <head>
-    <title>Tu resultado</title>
+    <title>El teu resultat</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,26 +16,29 @@
     <link rel="stylesheet" href="./chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-      $("#addClass").click(function () {
+        $(function () {
+            $("#addClass").click(function () {
                 $('#qnimate').addClass('popup-box-on');
-                  });
-                
-                  $("#removeClass").click(function () {
+            });
+
+            $("#removeClass").click(function () {
                 $('#qnimate').removeClass('popup-box-on');
-                  });
+            });
         })
-      </script>
+    </script>
 </head>
 
 <!--Cos de la pagina-->
 
 <body>
-   
+    <script src="./javascript.js"></script>
+    <script>window.onload = () => {
+            canviarText();
+        }</script>
 
     <!--Titol amb el logo del login-->
     <div class="container">
@@ -52,40 +55,53 @@
     <!--Pagina on es mostra el pis clickat a la cerca-->
     <div class="cercador">
 
-        <div class="jumbotron" style="margin-top: 100px">  
+        <div class="jumbotron" style="margin-top: 100px">
             <div class="d-flex flex-column">
                 <div class="p-2">
                     <div class="d-flex align-items-center">
                         <div class="p-2">
-                            <h1>Pis 2 habitacions amb àtic</h1>
-                            <h6>Nova York, Manhattan</h6>
+                            <h1><span id="_im">Pis</span> <span id="_hab">2</span> habitacions amb <span
+                                    id="_a">àtic</span></h1>
+                            <h6><span id="_car">Carrer Carrer</span>, <span id="_c">Ciutat</span></h6>
                         </div>
                         <div class="p-2">
                             <div class="rating">
-                                <input type="radio" name="rating" value="5" id="5" ><label for="5" href="#" class="star">☆</label>
-                                <input type="radio" name="rating" value="4" id="4" ><label for="4" href="#" class="star">☆</label>
-                                <input type="radio" name="rating" value="3" id="3" ><label for="3" href="#" class="star">☆</label>
-                                <input type="radio" name="rating" value="2" id="2" ><label for="2" href="#" class="star">☆</label>
-                                <input type="radio" name="rating" value="1" id="1" ><label for="1" href="#" class="star">☆</label>
-                              </div>
+                                <input type="radio" name="rating" value="5" id="5"><label for="5" href="#"
+                                    class="star">☆</label>
+                                <input type="radio" name="rating" value="4" id="4"><label for="4" href="#"
+                                    class="star">☆</label>
+                                <input type="radio" name="rating" value="3" id="3"><label for="3" href="#"
+                                    class="star">☆</label>
+                                <input type="radio" name="rating" value="2" id="2"><label for="2" href="#"
+                                    class="star">☆</label>
+                                <input type="radio" name="rating" value="1" id="1"><label for="1" href="#"
+                                    class="star">☆</label>
+                            </div>
                         </div>
-                        <div class="p-2 m-xl-auto"><h1>750 €/mes</h1></div>
                         <div class="p-2 m-xl-auto">
-                            <button type="button" class="btn btn-primary btn-lg" href="#" id="addClass">Contactar casolà</button>
+                            <h1><span id="_p">750</span>€/mes</h1>
+                        </div>
+                        <div class="p-2 m-xl-auto">
+                            <button type="button" class="btn btn-primary btn-lg" href="#" id="addClass">Contactar
+                                casolà</button>
                         </div>
                     </div>
                 </div>
                 <div class="p-2">
                     <div class="d-flex">
                         <div class="p-2">
-                            <h3>Inmoble de 73m2 amb bona iluminació ubicat a prop de la estació de metro, 2 habitacions i àtic, disponibilitat de Wi-Fi i ascensor.</h3>
+                            <h3>Inmoble de <span id="_s">73</span>m<sup>2</sup> amb bona iluminació ubicat a prop de la
+                                estació de metro, <span id="_hab">2</span> habitacions i <span id="_a">àtic</span>,
+                                disponibilitat de
+                                Wi-Fi i ascensor.</h3>
                             <h3>A prop de zones de oci, restaurans, gimnasis i centres comercials.</h3>
                         </div>
                         <div class="p-2">
                             <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50px">
-                                <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                                  style="border:0" allowfullscreen></iframe>
-                              </div>
+                                <iframe
+                                    src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,19 +109,22 @@
                     <div class="d-flex align-items-center">
                         <div class="p-2">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"
+                                    checked>
                                 <label class="form-check-label" for="inlineCheckbox1">Wi-Fi</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"
+                                    checked>
                                 <label class="form-check-label" for="inlineCheckbox2">Transport públic</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
+                                    checked>
                                 <label class="form-check-label" for="inlineCheckbox3">Ascensor</label>
-                              </div>
+                            </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="p-2">
@@ -119,89 +138,95 @@
                             height: auto;">
                         </div>
                         <div class="p-2">
-                            <img src="photo3.jpg" width="100%"  style="width: 100%;
+                            <img src="photo3.jpg" width="100%" style="width: 100%;
                             height: auto;">
                         </div>
                     </div>
                 </div>
-        </div>
-    </div>
-
-    <div class="jumbotronRatings" id="jumbotronRatings" style="margin-top: 100px; display:none">
-        <hi class="text-align center">Escriu la teva resenya!</hi>
-        <input class="form-control input-lg" id="inputlg" type="text">
-        <button type="button" class="btn btn-primary" id="sortirTrue">Publicar</button>
-        <button type="button" class="btn btn-danger" id="sortirFalse">Sortir</button>
-    </div>
-
-    
-
-    <div class="popup-box chat-popup" id="qnimate">
-        <div class="popup-head">
-          <div class="popup-head-left pull-left"><img src="https://media.istockphoto.com/photos/born-and-bred-in-the-city-picture-id1165314753?k=20&m=1165314753&s=612x612&w=0&h=G7_wuMpycAb9BVAuaZRpc5rTQ5TXg7-CjziiCaB-NRY=" alt="iamgurdeeposahan">Emilio Lopez</div>
-                <div class="popup-head-right pull-right">
-                    <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
-                </div>
-        </div>
-      <div class="popup-messages">
-      
-      
-      
-      
-      <div class="direct-chat-messages">
-              
-              
-              <div class="chat-box-single-line">
-                          <abbr class="timestamp">October 8th, 2022</abbr>
-              </div>
-              
-              
-              <!-- Message. Default to the left -->
-              <div class="direct-chat-msg doted-border">
-                <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name pull-left">Emilio</span>
-                </div>
-                <!-- /.direct-chat-info -->
-                <img alt="message user image" src="https://media.istockphoto.com/photos/born-and-bred-in-the-city-picture-id1165314753?k=20&m=1165314753&s=612x612&w=0&h=G7_wuMpycAb9BVAuaZRpc5rTQ5TXg7-CjziiCaB-NRY=" class="direct-chat-img"><!-- /.direct-chat-img -->
-                <div class="direct-chat-text">
-                  Bon dia, em contactes per l'oferta del pis?
-                </div>
-                <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-timestamp pull-right">3.36 PM</span>
-                </div>
-                  <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-img-reply-small pull-left">
-                      
-                  </span>
-                  <span class="direct-chat-reply-name">Tú</span>
-                  </div>
-                <!-- /.direct-chat-text -->
-              </div>
-              <!-- /.direct-chat-msg -->
             </div>
-      </div>
-      <div class="popup-messages-footer">
-      <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
-      </div>
-</div>
+        </div>
 
-<script>
-    $(function () {
-        $(".star").click(function () {
-            $("#jumbotronRatings").show();
-        });
-    });
-    $(function () {
-        $("#sortirTrue").click(function () {
-            $("#jumbotronRatings").hide();
-        });
-    });
-    $(function () {
-        $("#sortirFalse").click(function () {
-            $("#jumbotronRatings").hide();
-        });
-    });
-</script>
+        <div class="jumbotronRatings" id="jumbotronRatings" style="margin-top: 100px; display:none">
+            <hi class="text-align center">Escriu la teva resenya!</hi>
+            <input class="form-control input-lg" id="inputlg" type="text">
+            <button type="button" class="btn btn-primary" id="sortirTrue">Publicar</button>
+            <button type="button" class="btn btn-danger" id="sortirFalse">Sortir</button>
+        </div>
+
+
+
+        <div class="popup-box chat-popup" id="qnimate">
+            <div class="popup-head">
+                <div class="popup-head-left pull-left"><img
+                        src="https://media.istockphoto.com/photos/born-and-bred-in-the-city-picture-id1165314753?k=20&m=1165314753&s=612x612&w=0&h=G7_wuMpycAb9BVAuaZRpc5rTQ5TXg7-CjziiCaB-NRY="
+                        alt="iamgurdeeposahan">Emilio Lopez</div>
+                <div class="popup-head-right pull-right">
+                    <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i
+                            class="glyphicon glyphicon-remove"></i></button>
+                </div>
+            </div>
+            <div class="popup-messages">
+
+
+
+
+                <div class="direct-chat-messages">
+
+
+                    <div class="chat-box-single-line">
+                        <abbr class="timestamp">October 8th, 2022</abbr>
+                    </div>
+
+
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg doted-border">
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-name pull-left">Emilio</span>
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img alt="message user image"
+                            src="https://media.istockphoto.com/photos/born-and-bred-in-the-city-picture-id1165314753?k=20&m=1165314753&s=612x612&w=0&h=G7_wuMpycAb9BVAuaZRpc5rTQ5TXg7-CjziiCaB-NRY="
+                            class="direct-chat-img"><!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                            Bon dia, em contactes per l'oferta del pis?
+                        </div>
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                        </div>
+                        <div class="direct-chat-info clearfix">
+                            <span class="direct-chat-img-reply-small pull-left">
+
+                            </span>
+                            <span class="direct-chat-reply-name">Tú</span>
+                        </div>
+                        <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+                </div>
+            </div>
+            <div class="popup-messages-footer">
+                <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40"
+                    name="message"></textarea>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                $(".star").click(function () {
+                    $("#jumbotronRatings").show();
+                });
+            });
+            $(function () {
+                $("#sortirTrue").click(function () {
+                    $("#jumbotronRatings").hide();
+                });
+            });
+            $(function () {
+                $("#sortirFalse").click(function () {
+                    $("#jumbotronRatings").hide();
+                });
+            });
+        </script>
 </body>
 
 </html>
