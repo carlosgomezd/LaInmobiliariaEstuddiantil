@@ -323,3 +323,40 @@ function login_user () {
   }
 }
 
+
+function manageLogin () {
+
+  console.log("Inside ManageLogin");
+  // En cas que no hi hagi cap usuari registrat, anirem a formualri de login
+  if (localStorage.getItem("actualUser") === null){
+    console.log("Charging login.html");
+    window.location.href="./login.html";
+  }
+
+  // En cas contrari, anem al menu de l'usuari
+  else{
+    window.location.href="./menuUsuari.html";
+  }
+}
+
+
+function closeSession () {
+  console.log("Tancant sessió");
+
+  // GUardem la variable actualUser a null per evitar que carregui les dades de l'usuari anterior.
+  localStorage.removeItem("actualUser");
+  window.location.href="./main.html";
+}
+
+
+function goToBustia () {
+  console.log("Accedint a la bustia");
+
+  window.location.href="./xatUsuari.html";
+}
+
+
+function goToInmobles () {
+  console.log("Accedint als inmobles llogats");
+  window.location.href="./inmoblesLlogats";
+}

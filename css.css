@@ -30,6 +30,19 @@ body {
     border: rgba(0, 0, 0, 0.8) 2px solid;
 }
 
+
+.cardXat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 700px;
+    height: max-content;
+    border: black 2px solid;
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
 .loginContent {
     display: flex;
     justify-content: center;
@@ -79,6 +92,16 @@ div.wrapper {
     opacity: 100%;
     z-index: 1;
     border-radius: 15px;
+}
+
+.menuButtons {
+    height: 150px;
+    width: 150px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: rgba(69, 129, 142, 0.8);
+    border-radius: 15px;
+    border:rgb(0, 0, 0) 5px solid;
 }
 
 .acceptButtons {
