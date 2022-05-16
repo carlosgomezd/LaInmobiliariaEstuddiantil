@@ -19,10 +19,6 @@
 
     <script>
         initData();
-        localStorage.removeItem("resultat1");
-        localStorage.removeItem("resultat2");
-        localStorage.removeItem("resultat3");
-        localStorage.removeItem("nRes");
     </script>
     
     <div class="container">
@@ -34,89 +30,43 @@
                 </a>
             </div>
             <div class="btn-group">
-
-                <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
-                    el teu anunci!</button>
-
-                <button class="boto"  id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
-                    sessió</button>
-
-                    <script>
-                        if (localStorage.getItem("actualUser") !== null){
-                            document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
-                        }
-                    </script>
-            
                 <select class="boto" style="height: 26px;">
                     <option value="cat">Català</option>
                     <option value="cast">Castellano</option>
                     <option value="eng">English</option>
                 </select>
-
             </div>
         </div>
     </div>
 
-    <div class="cercador">
-        <div class="mainContent">
-            <div style="display: flex; flex-direction:column;">
-                <h2
-                    style="text-align: center; flex-direction: column; align-items: center; justify-content: center; font-weight: 700;">
-                    Troba el millor pis per a tu!</h2>
-                <br>
-                <div
-                    style="display: flex; justify-content: center; column-gap:25px; margin: auto auto auto auto; align-items: center;">
-                    
-                    <select class="boto" style="background-color: white; text-align: center;" title="ciutats"
-                        id="ciutat">
-                        <option selected disabled>Població&#65039;</option>
-                        <option value="bcn" id="bcn">Barcelona</option>
-                        <option value="gir" id="gir">Girona</option>
-                        <option value="llei" id="llei">Lleida</option>
-                        <option value="tar" id="tar">Tarragona</option>
-                    </select>
-                    <select class="boto" style="background-color: white; text-align: center;" title="Tipus d'immoble"
-                        id="immoble">
-                        <option selected disabled>Immoble</option>
-                        <option value="casa" id="casa">Casa</option>
-                        <option value="pis" id="pis">Pis</option>
-                    </select>
-                    <select class="boto" style="background-color: white; text-align: center;" title="Numero habitacions"
-                        id="habitacio">
-                        <option selected disabled>Habitacions</option>
-                        <option value="1" id="1">1</option>
-                        <option value="2" id="2">2</option>
-                        <option value="3" id="3">3</option>
-                        <option value="4" id="4">4</option>
-                        <option value="5" id="5">5</option>
-                    </select>
-                    <div>
-                        <div>
-                            <lable>Preu</lable>
-                            <br>
-                            <input type="range" min="1" max="1500" value="500" id="pr" style="display: inline-block;">
-                            <br>
-                            <span id="preu"></span>€
-                            <script>
-                                getValorPreu();
-                            </script>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline-primary" type="button" onclick="getBusqueda()">
-                        &#128270; Buscar
+    <!--Menu amb diferents opcions-->
+    <div class="cercador_no_image">
+        <div class="mainContent container" style="background-color: transparent; border: none;">
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="menuButtons" onclick="goToInmobles()">
+                        <img src="./house-window.png" height="90px" width="90px">
+                        Inmobles llogats
+                    </button>
+                </div>
+
+                <div class="col-sm-4">
+                    <button class="menuButtons" onclick="goToBustia()">
+                        <img src="./text-message.png" height="90px" width="90px">
+                        Bústia
+                    </button>
+                </div>
+
+                <div class="col-sm-4">
+                    <button class="menuButtons" id="sessionClose" onclick="closeSession()">
+                        <img src="./boton-cerrar-sesion.png" height="90px" width="90px">
+                        Tancar sessió
                     </button>
                 </div>
             </div>
         </div>
-        <div class="tipusCerca">
-            <li style="list-style: none;"><a class="cerca" href="./main.html">Cerca clàssica</a>
-            </li>
-            <li style="list-style: none;"><a class="cerca" href="./cerca1.html">Cerca per
-                    paraules</a></li>
-            <li style="list-style: none;"><a class="cerca" href="./cerca2.html">Cerques
-                    freqüents</a></li>
-        </div>
     </div>
+
     <div class="ajuda">
         <img src="./logo marronet.png" alt="logo" height="44px">
     </div>
@@ -155,5 +105,3 @@
         </div>
     </div>
 </body>
-
-</html>
