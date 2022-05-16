@@ -3,28 +3,22 @@ const numero_pisos = 10;
 const users = [];
 var num_users = 0;
 
-function canviarTextaux() {
-  for (var i = 0; i < localStorage["nRes"]; i++) {
-    canviarText(i + 1);
-  }
-}
-
-function canviarText(i) {
-  var b = JSON.parse(localStorage["resultat" + i]);
-  var c = b.ciutat;
-  var i = b.immoble;
-  var h = b.habitacions;
-  var p = b.preu;
-  var s = b.superficie;
-  var car = b.carrer;
-  var atr = b.atrb;
-  document.getElementById("_im" + i).innerHTML = i;
-  document.getElementById("_hab" + i).innerHTML = h;
-  document.getElementById("_p" + i).innerHTML = p;
-  document.getElementById("_c" + i).innerHTML = c;
-  document.getElementById("_s" + i).innerHTML = s;
-  document.getElementById("_car" + i).innerHTML = car;
-  document.getElementById("_atr" + i).innerHTML = atr;
+function canviarText() {
+  var t = JSON.parse(localStorage["resultat" + localStorage["clickID"]]);
+  var c = t.ciutat;
+  var a = t.atrb;
+  var car = t.carrer;
+  var s = t.superficie;
+  var hab = t.habitacions;
+  var im = t.immoble;
+  var p = t.preu;
+  document.getElementById("_im").innerHTML = im;
+  document.getElementById("_hab").innerHTML = hab;
+  document.getElementById("_p").innerHTML = p;
+  document.getElementById("_c").innerHTML = c;
+  document.getElementById("_s").innerHTML = s;
+  document.getElementById("_car").innerHTML = car;
+  document.getElementById("_a").innerHTML = a;
 }
 
 function getBusqueda() {
@@ -92,6 +86,9 @@ function crearDivAux() {
     crearDiv(localStorage["resultat" + (i + 1)], i + 1);
   }
 }
+function getID(id) {
+  localStorage["clickID"] = id;
+}
 
 function crearDiv(valor, i) {
   var pars = JSON.parse(valor);
@@ -122,6 +119,7 @@ function crearDiv(valor, i) {
   var carrer = document.createTextNode(pars.carrer + ", " + pars.ciutat);
   //var atributs = document.createTextNode();
 
+  link.setAttribute("id", i);
   link.setAttribute("style", "text-decoration: none; color: black;");
   class_row.setAttribute("class", "row no-gutters");
   class_col6.setAttribute("class", "col-sm-6");
@@ -134,6 +132,7 @@ function crearDiv(valor, i) {
   class_col5.setAttribute("class", "col-sm-4");
   img.setAttribute("class", "img-cerca");
 
+  link.setAttribute("onClick", "getID(this.id)");
   el.appendChild(nLista);
   nLista.appendChild(link);
   link.appendChild(card);
