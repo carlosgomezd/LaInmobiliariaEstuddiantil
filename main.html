@@ -35,11 +35,8 @@
             </div>
             <div class="btn-group">
 
-                <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
-                    style="background-color: #76afa4;">📌 Posa
+                <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
-                <button class="boto" type="button" onclick="window.location.href='./messages.html'"
-                    style="background-color: #76afa4;">💬 Missatges</button>
 
                 <button class="boto"  id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
                     sessió</button>
@@ -49,7 +46,7 @@
                             document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
                         }
                     </script>
-
+            
                 <select class="boto" style="height: 26px;">
                     <option value="cat">Català</option>
                     <option value="cast">Castellano</option>
@@ -69,9 +66,10 @@
                 <br>
                 <div
                     style="display: flex; justify-content: center; column-gap:25px; margin: auto auto auto auto; align-items: center;">
+                    
                     <select class="boto" style="background-color: white; text-align: center;" title="ciutats"
                         id="ciutat">
-                        <option selected disabled>Població</option>
+                        <option selected disabled>Població&#65039;</option>
                         <option value="bcn" id="bcn">Barcelona</option>
                         <option value="gir" id="gir">Girona</option>
                         <option value="llei" id="llei">Lleida</option>
@@ -104,10 +102,8 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div>
                     <button class="btn btn-outline-primary" type="button" onclick="getBusqueda()">
-                        Buscar
+                        &#128270; Buscar
                     </button>
                 </div>
             </div>

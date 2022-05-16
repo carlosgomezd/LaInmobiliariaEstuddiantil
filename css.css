@@ -38,7 +38,7 @@ body {
     color: black;
     justify-content: center;
     width: 750px;
-    height: 400px;
+    height: 200px;
     border-radius: 15px;
     background-color: rgba(69, 129, 142, 0.8);
     border: rgba(0, 0, 0, 0.8) 2px solid;
@@ -114,9 +114,9 @@ div.wrapper {
     width: 150px;
     margin-right: 50px;
     margin-left: 50px;
-    background-color: rgba(69, 129, 142, 0.8);
+    background-color: white;
     border-radius: 15px;
-    border:rgb(0, 0, 0) 5px solid;
+    border:rgb(0, 0, 0) 2px solid;
 }
 
 .acceptButtons {
@@ -223,6 +223,21 @@ a.efectoTitulo, a.efectoTitulo:hover {
     align-self: center;
     position: relative;
 }
+
+
+.cercador_no_image {
+    flex-direction: column;
+    display: flex;
+    background-color: #e5d0ba;
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    height: 100vh;
+    align-items: center;
+    align-self: center;
+    position: relative;
+} 
 
 .cerca {
     text-decoration: none;
@@ -355,7 +370,3 @@ a.exemples:hover {
     align-self: center;
     position: relative;
 }
-.msger-inputarea{
-    width: 90%;
-    height: 90%;
-
