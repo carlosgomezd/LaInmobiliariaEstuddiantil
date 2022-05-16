@@ -53,8 +53,10 @@ body {
     height: max-content;
     border: black 2px solid;
     box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    background-color: #be6b5b;
     border-radius: 15px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .loginContent {
