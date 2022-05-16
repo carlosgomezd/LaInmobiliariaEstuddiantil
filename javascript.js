@@ -82,6 +82,10 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
 }
 
 function crearDivAux() {
+  if(localStorage["nRes"]== 0){
+    alert("No hi ha resultats per a mostrar");
+    window.location.href = "./main.html";
+  }
   for (var i = 0; i < localStorage["nRes"]; i++) {
     crearDiv(localStorage["resultat" + (i + 1)], i + 1);
   }
