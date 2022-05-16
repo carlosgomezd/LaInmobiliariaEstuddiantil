@@ -3,52 +3,28 @@ const numero_pisos = 10;
 const users = [];
 var num_users = 0;
 
-function canviarText1() {
-  var b = JSON.parse(localStorage["resultat1"]);
-  var c = b.ciutat;
-  var i = b.immoble;
-  var h = b.habitacions;
-  var p = b.preu;
-  var s = b.superficie;
-  var car = b.carrer;
-  document.getElementById("_im1").innerHTML = i;
-  document.getElementById("_hab1").innerHTML = h;
-  document.getElementById("_p1").innerHTML = p;
-  document.getElementById("_c1").innerHTML = c;
-  document.getElementById("_s1").innerHTML = s;
-  document.getElementById("_car1").innerHTML = car;
+function canviarTextaux() {
+  for (var i = 0; i < localStorage["nRes"]; i++) {
+    canviarText(i + 1);
+  }
 }
 
-function canviarText2() {
-  var b = JSON.parse(localStorage["resultat2"]);
+function canviarText(i) {
+  var b = JSON.parse(localStorage["resultat" + i]);
   var c = b.ciutat;
   var i = b.immoble;
   var h = b.habitacions;
   var p = b.preu;
   var s = b.superficie;
   var car = b.carrer;
-  document.getElementById("_im2").innerHTML = i;
-  document.getElementById("_hab2").innerHTML = h;
-  document.getElementById("_p2").innerHTML = p;
-  document.getElementById("_c2").innerHTML = c;
-  document.getElementById("_s2").innerHTML = s;
-  document.getElementById("_car2").innerHTML = car;
-}
-
-function canviarText3() {
-  var b = JSON.parse(localStorage["resultat3"]);
-  var c = b.ciutat;
-  var i = b.immoble;
-  var h = b.habitacions;
-  var p = b.preu;
-  var s = b.superficie;
-  var car = b.carrer;
-  document.getElementById("_im3").innerHTML = i;
-  document.getElementById("_hab3").innerHTML = h;
-  document.getElementById("_p3").innerHTML = p;
-  document.getElementById("_c3").innerHTML = c;
-  document.getElementById("_s3").innerHTML = s;
-  document.getElementById("_car3").innerHTML = car;
+  var atr = b.atrb;
+  document.getElementById("_im" + i).innerHTML = i;
+  document.getElementById("_hab" + i).innerHTML = h;
+  document.getElementById("_p" + i).innerHTML = p;
+  document.getElementById("_c" + i).innerHTML = c;
+  document.getElementById("_s" + i).innerHTML = s;
+  document.getElementById("_car" + i).innerHTML = car;
+  document.getElementById("_atr" + i).innerHTML = atr;
 }
 
 function getBusqueda() {
@@ -72,6 +48,7 @@ function getBusqueda() {
   window.location.href = "./Resultado_cerca.html";
   var busqueda = new pisos(-1, strCiutat, strImm, strHab, preu, sup);
   busqueda.carrer = "";
+  busqueda.atrb = "";
   localStorage["busq"] = JSON.stringify(busqueda);
 }
 
@@ -98,6 +75,8 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
     "Jaume I",
     "	Joan Miró",
   ];
+  const atr = ["Piscina", "Jardi", "Àtic", "Terrasa"];
+
   this.id = id;
   this.ciutat = ciutat;
   this.immoble = immoble;
@@ -105,33 +84,85 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.preu = preu;
   this.superficie = superficie;
   this.carrer = carrer[Math.floor(Math.random() * carrer.length)];
+  this.atrb = atr[Math.floor(Math.random() * atr.length)];
 }
 
-function crearDiv() {
+function crearDivAux() {
+  for (var i = 0; i < localStorage["nRes"]; i++) {
+    crearDiv(localStorage["resultat" + (i + 1)], i + 1);
+  }
+}
+
+function crearDiv(valor, i) {
+  var pars = JSON.parse(valor);
   var link = document.createElement("a");
   var nLista = document.createElement("li");
   var card = document.createElement("div");
-  var el = document.getElementById("llista");
-  link.setAttribute('href', './finalResult.html');
-  card.setAttribute('class','card');
+  var el = document.getElementById("listado");
+  var class_row = document.createElement("div");
+  var class_col6 = document.createElement("div");
+  var class_cardb = document.createElement("div");
+  var class_carti = document.createElement("h5");
+  var class_cart = document.createElement("p");
+  var class_cart2 = document.createElement("p");
+  var class_col5 = document.createElement("div");
+  var img = document.createElement("img");
+  var info = document.createTextNode(
+    pars.immoble +
+      ", " +
+      pars.habitacions +
+      " habitacions amb " +
+      pars.atrb +
+      ", " +
+      pars.superficie +
+      "m² (" +
+      pars.preu +
+      "€/mes)"
+  );
+  var carrer = document.createTextNode(pars.carrer + ", " + pars.ciutat);
+  //var atributs = document.createTextNode();
+
+  link.setAttribute("style", "text-decoration: none; color: black;");
+  class_row.setAttribute("class", "row no-gutters");
+  class_col6.setAttribute("class", "col-sm-6");
+  class_cardb.setAttribute("class", "card-body");
+  class_carti.setAttribute("class", "card-title");
+  class_cart.setAttribute("class", "card-text");
+  class_cart2.setAttribute("class", "card-text");
+  link.setAttribute("href", "./finalResult.html");
+  card.setAttribute("class", "card card2");
+  class_col5.setAttribute("class", "col-sm-4");
+  img.setAttribute("class", "img-cerca");
+
   el.appendChild(nLista);
   nLista.appendChild(link);
   link.appendChild(card);
+  card.appendChild(class_row);
+  class_row.appendChild(class_col6);
+  class_col6.appendChild(class_cardb);
+  class_cardb.appendChild(class_carti);
+  class_cardb.appendChild(class_cart);
+  class_cardb.appendChild(class_cart2);
+  class_row.appendChild(class_col5);
+  class_col5.appendChild(img);
+  img.src = "photo" + i + ".jpg";
 
-
+  class_carti.appendChild(info);
+  class_cart.appendChild(carrer);
+  //class_cart2.appendChild(atributs);
 }
 
-function hide() {
-  var h2 = document.getElementById("hide2");
-  var h3 = document.getElementById("hide3");
-  if (localStorage["nRes"] == 1) {
-    h2.style.display = "none";
-    h3.style.display = "none";
-  }
-  if (localStorage["nRes"] == 2) {
-    h3.style.display = "none";
-  }
-}
+// function hide() {
+//   var h2 = document.getElementById("hide2");
+//   var h3 = document.getElementById("hide3");
+//   if (localStorage["nRes"] == 1) {
+//     h2.style.display = "none";
+//     h3.style.display = "none";
+//   }
+//   if (localStorage["nRes"] == 2) {
+//     h3.style.display = "none";
+//   }
+// }
 
 function compararCerca() {
   const lst = [];
@@ -334,4 +365,3 @@ function login_user() {
     window.location.href = "./login.html";
   }
 }
-
