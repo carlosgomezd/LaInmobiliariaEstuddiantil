@@ -312,3 +312,19 @@ height: 180px;
 grid-column: head-col-start / head-col-end;
 grid-row: content-row-end / footer-row-end;
 }
+.msg-box {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    color: black;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    background-color: rgba(69, 129, 142, 0.8);
+    border: rgba(0, 0, 0, 0.8) 2px solid;
+}
+p.flex-bottom {
+  flex-grow: 1;
+}
