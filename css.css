@@ -85,7 +85,6 @@ div.wrapper {
     align-items: center;
     height: 600px;
     width: 500px;
-    margin: center center center center;
     background-color: rgba(229, 208, 186, 0.8);
     border: rgba(0, 0, 0, 0.8) 2px solid;
     border-radius: 15px;
@@ -323,3 +322,40 @@ a.exemples:hover {
     text-decoration: underline;
     color: black;
 }
+.chats {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 30px;
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+.box-missatges {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 30px;
+    border-color: #1d1c1b;
+
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+.missatges{
+    flex-direction: column;
+    display: flex;
+    background: url('./fondo2.jpg');
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: auto 100%;
+    height: 100vh;
+    align-items: center;
+    align-self: center;
+    position: relative;
+}
+.msger-inputarea{
+    width: 90%;
+    height: 90%;
+
