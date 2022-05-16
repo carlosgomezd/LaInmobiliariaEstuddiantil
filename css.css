@@ -5,6 +5,20 @@ body {
     overflow-x: hidden;
 }
 
+.card2 {
+    margin-right: 50px;
+    margin-top: 10px;
+    border-radius: 25px;
+    border: rgba(0, 0, 0, 0.8) 2px solid;
+    width: 826px;
+}
+
+.img-cerca {
+    height: 300px;
+    width: 400px;
+    border-radius: 25px;
+}
+
 .header {
     display: flex;
     background: #be6b5b;
@@ -180,7 +194,7 @@ a.efectoTitulo, a.efectoTitulo:hover {
     flex: 80%;
 }
 
-.columna_p{
+.columna_p {
     flex-direction: column;
     align-items: center;
     background-size: auto;

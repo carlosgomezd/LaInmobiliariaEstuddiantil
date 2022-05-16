@@ -16,11 +16,12 @@
             showPisos();
             showBusqueda();
             compararCerca();
-            canviarText1();
-            canviarText2();
-            canviarText3();
-        }
+            crearDivAux();
 
+        }
+        function getClick(clickID) {
+            localStorage["clickID"] = clickID;
+        }
     </script>
     <div class="container">
         <div class="header">
@@ -35,10 +36,11 @@
                     style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
 
-                <button class="boto" type="button" id="loginButton" onclick="window.location.href='./login.html'">👤 Iniciar sessió</button>
+                <button class="boto" type="button" id="loginButton" onclick="window.location.href='./login.html'">👤
+                    Iniciar sessió</button>
 
                 <script>
-                    if (localStorage.getItem("actualUser") !== null){
+                    if (localStorage.getItem("actualUser") !== null) {
                         document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
                     }
                 </script>
@@ -87,124 +89,49 @@
                 <input class="inputText" id="Fecha" type="date" name="date">
             </div>
         </ul>
-        <ul style="list-style: none; text-align: center;">
-            <li>
-                <a href="./finalResult.html" style="text-decoration: none; color: black;">
-                    <div class="card" style="margin-right: 50px; margin-top: 10px; border-radius: 25px; border: rgba(0, 0, 0, 0.8) 2px solid;">
-                        <div class="row no-gutters">
-                            <div class="col-sm-7">
-                                <div class="card-body">
-                                    <h5 class="card-title"><span id="_im1">Pis</span>, <span id="_hab1">2</span>
-                                        habitacions
-                                        amb àtic, <span id="_s1">10</span>m<sup>2</sup> (<span id="_p1">750</span>€/mes)
-                                    </h5>
-                                    <p class="card-text"><span id="_c1">Barcelona</span></p>
-                                    <br></br>
-                                    <br></br>
-                                    <p class="card-text">&#10003Wifi &nbsp&nbsp &#10003Aprop transport public &nbsp&nbsp
-                                        &#10003Ascensor &nbsp&nbsp
-                                        &#10003Terrasa</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <img class="card-img" style="border-radius: 25px;" src="./photo2.jpg" alt="Pis">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="./finalResult.html" style="text-decoration: none; color: black;">
-                    <div class="card" style="margin-right: 50px; margin-top: 10px; border-radius: 25px; border: rgba(0, 0, 0, 0.8) 2px solid;" id="hide2">
-                        <div class="row no-gutters">
-                            <div class="col-sm-7">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <span id="_im2">Pis</span>, <span id="_hab2">2</span> habitacions
-                                        amb jardí, <span id="_s2">56</span>m<sup>2</sup> (<span
-                                            id="_p2">750</span>€/mes)
-                                    </h5>
-                                    <p class="card-text"><span id="_c2">Barcelona</span></p>
-                                    <br></br>
-                                    <br></br>
-                                    <p class="card-text">&#10003Wifi &nbsp&nbsp &#10003Aprop transport public &nbsp&nbsp
-                                        &#10003Jardi</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <img class="card-img" style="border-radius: 25px;" src="./photo3.jpg" alt="Casa">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li id="hide3">
-                <a href="./finalResult.html" style="text-decoration: none; color: black; ">
-                    <div class="card" style="margin-right: 50px; margin-top: 10px; border-radius: 25px; border: rgba(0, 0, 0, 0.8) 2px solid;">
-                        <div class="row no-gutters">
-                            <div class="col-sm-7">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <span id="_im3">Casa</span>, <span id="_hab3">2</span> habitacions
-                                        amb piscina, <span id="_s3">40</span>m<sup>2</sup> (<span
-                                            id="_p3">750</span>€/mes)
-                                    </h5>
-                                    <p class="card-text"><span id="_c3">Barcelona</span></p>
-                                    <br></br>
-                                    <br></br>
-                                    <h7 class="card-text">&#10003Wifi &nbsp&nbsp &#10003Piscina</h7>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <img class="card-img" style="border-radius: 25px;" src="./photo1.jpg" alt="Casa">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
+        <ul style="list-style: none; text-align: center;" id="listado">
         </ul>
     </div>
     <div class="ajuda">
         <img src="./logo marronet.png" alt="logo" height="44px">
-        <div style="display: flex; column-count:2; flex: 80%">
-            <div class="llista">
-                <ul style="list-style: none; text-align: center;">
-                    <h3 style="color: black; text-align: center;">Ajuda</h3>
-                    <hr>
-                    <li><a class="listElem" href="#" title="Preguntes freqüents"
-                            style="text-decoration: none; color: #1d1c1b;">Preguntes
-                            freqüents</a></li>
-                    <li><a class="listElem" href="#" title="Contactan'ns"
-                            style="text-decoration: none;color: #1d1c1b;">Contactan'ns</a></li>
-                    <li><a class="listElem" href="#" title="Política de privacitat"
-                            style="text-decoration: none;color: #1d1c1b;">Política de
-                            privacitat</a></li>
-                    <li><a class="listElem" href="#" title="Política de les cookies"
-                            style="text-decoration: none;color: #1d1c1b;">Política de
-                            les cookies</a></li>
-                    <li><a class="listElem" href="#" title="Condicions generals"
-                            style="text-decoration: none;color: #1d1c1b;">Condicions
-                            generals</a></li>
-                </ul>
-                <ul style="list-style: none; text-align: center;">
-                    <h3 style="color: black; text-align: center;">Sobre nosaltres</h3>
-                    <hr>
-                    <li><a href="#" title="Preguntes freqüents" style="text-decoration: none; color: #1d1c1b;">Qui
-                            som</a>
-                    </li>
-                    <li><a href="#" title="Contactan'ns" style="text-decoration: none;color: #1d1c1b;">Que fem</a></li>
-                    <li><a href="#" title="Política de privacitat"
-                            style="text-decoration: none;color: #1d1c1b;">Localitza'ns</a></li>
-                </ul>
-                <ul>
-                    <h3 style="color: black; text-align: center;">Xarxes Socials</h3>
-                    <hr>
-                    <a class="redes" href="www.facebook.es"><img style="height: 55px;"
-                            src="./icons8-facebook-48.png"></a>
-                    <a class="redes" href="www.instagram.es"><img src="./icons8-instagram-48.png"></a>
-                    <a class="redes" href="www.twitter.es"><img style="height: 55px;" src="./icons8-twitter-48.png"></a>
-                </ul>
-            </div>
+    </div>
+    <div style="display: flex; column-count:2; flex: 80%">
+        <div class="llista">
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Ajuda</h3>
+                <hr>
+                <li><a class="listElem" href="#" title="Preguntes freqüents"
+                        style="text-decoration: none; color: #1d1c1b;">Preguntes
+                        freqüents</a></li>
+                <li><a class="listElem" href="#" title="Contactan'ns"
+                        style="text-decoration: none;color: #1d1c1b;">Contactan'ns</a></li>
+                <li><a class="listElem" href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        privacitat</a></li>
+                <li><a class="listElem" href="#" title="Política de les cookies"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        les cookies</a></li>
+                <li><a class="listElem" href="#" title="Condicions generals"
+                        style="text-decoration: none;color: #1d1c1b;">Condicions
+                        generals</a></li>
+            </ul>
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Sobre nosaltres</h3>
+                <hr>
+                <li><a href="#" title="Preguntes freqüents" style="text-decoration: none; color: #1d1c1b;">Qui
+                        som</a>
+                </li>
+                <li><a href="#" title="Contactan'ns" style="text-decoration: none;color: #1d1c1b;">Que fem</a></li>
+                <li><a href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Localitza'ns</a></li>
+            </ul>
+            <ul>
+                <h3 style="color: black; text-align: center;">Xarxes Socials</h3>
+                <hr>
+                <a class="redes" href="www.facebook.es"><img style="height: 55px;" src="./icons8-facebook-48.png"></a>
+                <a class="redes" href="www.instagram.es"><img src="./icons8-instagram-48.png"></a>
+                <a class="redes" href="www.twitter.es"><img style="height: 55px;" src="./icons8-twitter-48.png"></a>
+            </ul>
         </div>
     </div>
 </body>
