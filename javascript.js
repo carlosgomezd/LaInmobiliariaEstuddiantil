@@ -3,15 +3,24 @@ const numero_pisos = 10;
 const users = [];
 var num_users = 0;
 
+function img() {
+  var t = JSON.parse(localStorage["resultat" + localStorage["clickID"]]);
+  document.getElementById("photo").setAttribute("src", t.image_url);
+}
 function canviarText() {
   var t = JSON.parse(localStorage["resultat" + localStorage["clickID"]]);
   var c = t.ciutat;
   var a = t.atrb;
+  var a2 = t.atrb;
+  var hab2 = t.habitacions;
   var car = t.carrer;
   var s = t.superficie;
   var hab = t.habitacions;
   var im = t.immoble;
   var p = t.preu;
+  var im2 = t.immoble;
+  var tel = t.tel;
+
   document.getElementById("_im").innerHTML = im;
   document.getElementById("_hab").innerHTML = hab;
   document.getElementById("_p").innerHTML = p;
@@ -19,8 +28,21 @@ function canviarText() {
   document.getElementById("_s").innerHTML = s;
   document.getElementById("_car").innerHTML = car;
   document.getElementById("_a").innerHTML = a;
-  document.getElementById("_a2").innerHTML = a;
-  document.getElementById("_hab2").innerHTML = hab;
+  document.getElementById("_a2").innerHTML = a2;
+  document.getElementById("_hab2").innerHTML = hab2;
+  document.getElementById("_im2").innerHTML = im2;
+  document.getElementById("_tel").innerHTML = tel;
+  var string = "";
+  if (t.wifi) {
+    string += " Wifi";
+  }
+  if (t.ascensor) {
+    string += ", Ascensor";
+  }
+  if (t.transport) {
+    string += " i fàcil accés a transport públic.";
+  }
+  document.getElementById("atributs").innerHTML = string;
 }
 
 function getBusqueda() {
@@ -59,6 +81,11 @@ function showPisos() {
 }
 
 function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
+  this.wifi = Math.floor(Math.random() * 2) == 1;
+  this.transport = Math.floor(Math.random() * 2) == 1;
+  this.ascensor = Math.floor(Math.random() * 2) == 1;
+  const atr = ["piscina", "jardi", "àtic", "terrasa"];
+
   const carrer = [
     "Pau Casals",
     "Jacint Verdaguer",
@@ -67,14 +94,23 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
     "Jaume Balmes",
     "Lluís Companys",
     "Àngel Guimerà",
-    "	Francesc Macià",
+    "Francesc Macià",
     "Jaume I",
-    "	Joan Miró",
+    "Joan Miró",
   ];
-  const atr = ["Piscina", "Jardi", "Àtic", "Terrasa"];
-  var list_images = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 
-  'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 
-  'photo9.jpg', 'photo10.jpg']
+
+  var list_images = [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg",
+    "photo5.jpg",
+    "photo6.jpg",
+    "photo7.jpg",
+    "photo8.jpg",
+    "photo9.jpg",
+    "photo10.jpg",
+  ];
 
   this.id = id;
   this.ciutat = ciutat;
@@ -82,13 +118,11 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.habitacions = habitacions;
   this.preu = preu;
   this.superficie = superficie;
-
-  var value = Math.floor(Math.random() * list_images.length)
-  this.image_url = list_images[value];
-  list_images.splice(value);
+  this.image_url = list_images[id - 1];
 
   this.carrer = carrer[Math.floor(Math.random() * carrer.length)];
   this.atrb = atr[Math.floor(Math.random() * atr.length)];
+  this.tel = 9 + Math.random().toString().slice(2, 10);
 }
 
 function crearDivAux() {
@@ -116,7 +150,9 @@ function crearDiv(valor, i) {
   var class_carti = document.createElement("h5");
   var class_cart = document.createElement("p");
   var class_cart2 = document.createElement("p");
+  var class_cart3 = document.createElement("p");
   var class_col5 = document.createElement("div");
+  var tel = document.createElement("p");
   var img = document.createElement("img");
   var info = document.createTextNode(
     pars.immoble +
@@ -130,20 +166,34 @@ function crearDiv(valor, i) {
       pars.preu +
       "€/mes)"
   );
+  var string = "";
+  if (pars.wifi) {
+    string += "📶 Wifi \xa0\xa0\xa0";
+  }
+  if (pars.ascensor) {
+    string += "🛗 Ascensor \xa0\xa0\xa0";
+  }
+  if (pars.transport) {
+    string += "🚏 Transport públic";
+  }
+  var atri = document.createTextNode(string);
+  var atr = document.createTextNode("☎︎ +34 " + pars.tel);
   var carrer = document.createTextNode(pars.carrer + ", " + pars.ciutat);
-  //var atributs = document.createTextNode();
 
   link.setAttribute("id", i);
   link.setAttribute("style", "text-decoration: none; color: black;");
   class_row.setAttribute("class", "row no-gutters");
   class_col6.setAttribute("class", "col-sm-6");
   class_cardb.setAttribute("class", "card-body");
+  card.setAttribute("style", "width: 1100px");
   class_carti.setAttribute("class", "card-title");
   class_cart.setAttribute("class", "card-text");
   class_cart2.setAttribute("class", "card-text");
+  class_cart3.setAttribute("class", "card-text");
+  class_cart3.setAttribute("style", "display: flex; bottom:2px;");
   link.setAttribute("href", "./finalResult.html");
   card.setAttribute("class", "card card2");
-  class_col5.setAttribute("class", "col-sm-4");
+  class_col5.setAttribute("class", "col-sm");
   img.setAttribute("class", "img-cerca");
 
   link.setAttribute("onClick", "getID(this.id)");
@@ -156,13 +206,17 @@ function crearDiv(valor, i) {
   class_cardb.appendChild(class_carti);
   class_cardb.appendChild(class_cart);
   class_cardb.appendChild(class_cart2);
+  class_cardb.appendChild(class_cart3);
   class_row.appendChild(class_col5);
   class_col5.appendChild(img);
-  img.src = "photo" + i + ".jpg";
+  img.src = pars.image_url;
 
   class_carti.appendChild(info);
   class_cart.appendChild(carrer);
-  //class_cart2.appendChild(atributs);
+  class_cardb.appendChild(atri);
+  class_col6.appendChild(tel);
+  tel.appendChild(atr);
+  tel.setAttribute("style","float: left; position: absolute; bottom:25px; left:50px;");
 }
 
 function compararCerca() {
@@ -257,15 +311,6 @@ function getValorPreu() {
   };
 }
 
-function getValorSuperficie() {
-  var slider = document.getElementById("sup");
-  var output = document.getElementById("m2");
-  output.innerHTML = slider.value;
-  slider.oninput = function () {
-    output.innerHTML = this.value;
-  };
-}
-
 function User(name, surname, username, password) {
   this.name = name;
   this.surname = surname;
@@ -344,43 +389,37 @@ function login_user() {
   }
 }
 
-
-function manageLogin () {
-
+function manageLogin() {
   console.log("Inside ManageLogin");
   // En cas que no hi hagi cap usuari registrat, anirem a formualri de login
-  if (localStorage.getItem("actualUser") === null){
+  if (localStorage.getItem("actualUser") === null) {
     console.log("Charging login.html");
-    window.location.href="./login.html";
+    window.location.href = "./login.html";
   }
 
   // En cas contrari, anem al menu de l'usuari
-  else{
-    window.location.href="./menuUsuari.html";
+  else {
+    window.location.href = "./menuUsuari.html";
   }
 }
 
-
-function closeSession () {
+function closeSession() {
   console.log("Tancant sessió");
 
   // GUardem la variable actualUser a null per evitar que carregui les dades de l'usuari anterior.
   localStorage.removeItem("actualUser");
-  window.location.href="./main.html";
+  window.location.href = "./main.html";
 }
 
-
-function goToBustia () {
+function goToBustia() {
   console.log("Accedint a la bustia");
-  window.location.href="./messages.html";
+  window.location.href = "./messages.html";
 }
 
-
-function goToInmobles () {
+function goToInmobles() {
   console.log("Accedint als inmobles llogats");
-  window.location.href="./inmoblesLlogats.html";
+  window.location.href = "./inmoblesLlogats.html";
 }
-
 
 /**
  * Aquesta funció s'encarrega de recuperar la llista de pisos llogats per un usuari
@@ -391,11 +430,10 @@ function getListFromUser(username) {
   return user.saved_pisos;
 }
 
-
-function addPisos (username){
+function addPisos(username) {
   var user = JSON.parse(this.getUser(username));
   console.log("NOM DE L'USUARI: " + user.username.toString());
-  
+
   var pis1 = JSON.parse(localStorage.getItem("pis1"));
   console.log("URL:" + pis1.image_url.toString());
   var pis2 = JSON.parse(localStorage.getItem("pis2"));
@@ -410,11 +448,4 @@ function addPisos (username){
 
   user.saved_pisos = list;
   localStorage[username] = JSON.stringify(user);
-}
-
-function setImage () {
-  var image = document.getElementById("image");
-  image.id = Math.random().toString();
-  var urlImage = list_images[Math.floor(Math.random() * list_images.length)];
-  image.src = urlImage;
 }
