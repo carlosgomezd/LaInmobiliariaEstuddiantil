@@ -44,7 +44,10 @@
 
                 <script>
                     if (localStorage.getItem("actualUser") !== null) {
-                        document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
+                        document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
+                        document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
+                    }else{
+                        document.getElementById("bus").setAttribute("onClick", "manageLogin()");
                     }
                 </script>
                 <select class="boto" style="height: 26px;">
