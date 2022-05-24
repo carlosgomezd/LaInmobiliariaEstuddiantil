@@ -24,11 +24,23 @@
         crossorigin="anonymous"></script>
 
     <!--Titol amb el logo del login-->
-    <div class="header">
-        <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img" src="./logo.png"
-                alt="logo">
-            <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-        </a>
+    <div class="container">
+        <div class="header">
+            <div style="display:flex; flex: 80">
+                <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                        src="./logo.png" alt="logo">
+                    <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+                </a>
+            </div>
+            <div class="btn-group">
+                <select class="boto" style="height: 26px;">
+                    <option value="cat">Català</option>
+                    <option value="cast">Castellano</option>
+                    <option value="eng">English</option>
+                </select>
+
+            </div>
+        </div>
     </div>
 
     <!--Formulari on introduim les dades-->
@@ -68,7 +80,8 @@
 
                         <div class="row">
                             <label>Repeteix la contrasenya</label>
-                            <input class="inputText" id="register_user_password_repeat" type="password" name="userpassword">
+                            <input class="inputText" id="register_user_password_repeat" type="password"
+                                name="userpassword">
                             <p></p>
                         </div>
 

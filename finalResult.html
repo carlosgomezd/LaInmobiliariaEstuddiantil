@@ -52,18 +52,21 @@
             </div>
             <div class="btn-group">
 
+
                 <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
-
+                <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
                 <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
                     sessió</button>
 
                 <script>
                     if (localStorage.getItem("actualUser") !== null) {
-                        document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
+                        document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
+                        document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
+                    } else {
+                        document.getElementById("bus").setAttribute("onClick", "manageLogin()");
                     }
                 </script>
-
                 <select class="boto" style="height: 26px;">
                     <option value="cat">Català</option>
                     <option value="cast">Castellano</option>
@@ -75,10 +78,10 @@
     </div>
 
     <!--Pagina on es mostra el pis clickat a la cerca-->
-    <div class="cercador_no_image">
-
-        <div class="jumbotron" style="margin-top: 100px; background-color: white;">
-            <div class="d-flex flex-column">
+    <div class="cercador_no_image" style="display: flex; align-items: center; justify-content:center;margin-top: 2%; ">
+        <div class="mainContent"
+            style="display:flex;margin-top:100px; height:fit-content; align-items: center; justify-content:center; align-self: center; width: 75vw;background-color: white; ">
+            <div class="d-flex flex-column" style="bottom:0;">
                 <div class="p-2">
                     <div style="display:flex;">
                         <div class="p-2">
@@ -97,7 +100,8 @@
                 </div>
                 <div class="p-2">
                     <div class="row">
-                        <h3>Inmoble de <span id="_s">73</span>m<sup>2</sup>, <span id="_hab2">2</span> habitacions i <span id="_a2">àtic</span>.
+                        <h3>Inmoble de <span id="_s">73</span>m<sup>2</sup>, <span id="_hab2">2</span> habitacions i
+                            <span id="_a2">àtic</span>.
                         </h3>
                         <h3>
                             Aquest <span id="_im2">pis</span> compta amb <span id="atributs"></span>
@@ -208,7 +212,7 @@
             $(function () {
                 $(".star").click(function () {
                     $("#jumbotronRatings").show();
-                    
+
                 });
             });
             $(function () {
@@ -225,7 +229,49 @@
             });
         </script>
     </div>
-
+    <br><br>
+    <div class="ajuda">
+        <img src="./logo marronet.png" alt="logo" height="44px">
+    </div>
+    <div style="display: flex; column-count:2; flex: 80%">
+        <div class="llista">
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Ajuda</h3>
+                <hr>
+                <li><a class="listElem" href="#" title="Preguntes freqüents"
+                        style="text-decoration: none; color: #1d1c1b;">Preguntes
+                        freqüents</a></li>
+                <li><a class="listElem" href="#" title="Contactan'ns"
+                        style="text-decoration: none;color: #1d1c1b;">Contactan'ns</a></li>
+                <li><a class="listElem" href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        privacitat</a></li>
+                <li><a class="listElem" href="#" title="Política de les cookies"
+                        style="text-decoration: none;color: #1d1c1b;">Política de
+                        les cookies</a></li>
+                <li><a class="listElem" href="#" title="Condicions generals"
+                        style="text-decoration: none;color: #1d1c1b;">Condicions
+                        generals</a></li>
+            </ul>
+            <ul style="list-style: none; text-align: center;">
+                <h3 style="color: black; text-align: center;">Sobre nosaltres</h3>
+                <hr>
+                <li><a href="#" title="Preguntes freqüents" style="text-decoration: none; color: #1d1c1b;">Qui
+                        som</a>
+                </li>
+                <li><a href="#" title="Contactan'ns" style="text-decoration: none;color: #1d1c1b;">Que fem</a></li>
+                <li><a href="#" title="Política de privacitat"
+                        style="text-decoration: none;color: #1d1c1b;">Localitza'ns</a></li>
+            </ul>
+            <ul>
+                <h3 style="color: black; text-align: center;">Xarxes Socials</h3>
+                <hr>
+                <a class="redes" href="www.facebook.es"><img style="height: 55px;" src="./icons8-facebook-48.png"></a>
+                <a class="redes" href="www.instagram.es"><img src="./icons8-instagram-48.png"></a>
+                <a class="redes" href="www.twitter.es"><img style="height: 55px;" src="./icons8-twitter-48.png"></a>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

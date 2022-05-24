@@ -18,35 +18,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <div class="container">
-
-        <div class="header">
-            <div style="display:flex; flex: 80">
-                <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
-                        src="./logo.png" alt="logo">
-                    <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-                </a>
-            </div>
-            <div class="btn-group">
-                <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
-                    style="background-color: #76afa4;">📌 Posa
-                    el teu anunci!</button>
-                <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
-                    sessió</button>
-
-                <script>
-                    if (localStorage.getItem("actualUser") !== null) {
-                        document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
-                    }
-                </script>
-                <select class="boto" style="height: 26px;">
-                    <option value="cat">Català</option>
-                    <option value="cast">Castellano</option>
-                    <option value="eng">English</option>
-                </select>
+        <div class="container">
+            <div class="header">
+                <div style="display:flex; flex: 80">
+                    <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                            src="./logo.png" alt="logo">
+                        <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+                    </a>
+                </div>
+                <div class="btn-group">
+    
+    
+                    <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
+                        el teu anunci!</button>
+                    <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
+                    <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                        sessió</button>
+    
+                    <script>
+                        if (localStorage.getItem("actualUser") !== null) {
+                            document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
+                            document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
+                        }else{
+                            document.getElementById("bus").setAttribute("onClick", "manageLogin()");
+                        }
+                    </script>
+                    <select class="boto" style="height: 26px;">
+                        <option value="cat">Català</option>
+                        <option value="cast">Castellano</option>
+                        <option value="eng">English</option>
+                    </select>
+    
+                </div>
             </div>
         </div>
-    </div>
     <div class="cercador">
         <div class="mainContent" style="width: 750px; height: 350px;">
             <div>

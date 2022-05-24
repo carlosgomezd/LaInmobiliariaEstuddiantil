@@ -27,6 +27,7 @@
         }
     </script>
 
+<div class="container">
     <div class="header">
         <div style="display:flex; flex: 80">
             <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
@@ -35,18 +36,31 @@
             </a>
         </div>
         <div class="btn-group">
-            <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
-                style="background-color: #76afa4;">📌 Posa
+
+
+            <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
                 el teu anunci!</button>
-            <button class="boto" type="button" onclick="window.location.href='./login.html'">👤 El meu
-                Perfil</button>
+            <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
+            <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                sessió</button>
+
+            <script>
+                if (localStorage.getItem("actualUser") !== null) {
+                    document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
+                    document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
+                }else{
+                    document.getElementById("bus").setAttribute("onClick", "manageLogin()");
+                }
+            </script>
             <select class="boto" style="height: 26px;">
                 <option value="cat">Català</option>
                 <option value="cast">Castellano</option>
                 <option value="eng">English</option>
             </select>
+
         </div>
     </div>
+</div>
     <div class="llista_r">
         <ul style="list-style: none; text-align: center;">
             <a href="./Pis2.html" style="text-decoration: none; color: black;">
