@@ -13,11 +13,8 @@
     <script src="./javascript.js"></script>
     <script>
         window.onload = () => {
-            showPisos();
-            showBusqueda();
             compararCerca();
             crearDivAux();
-
         }
         function getClick(clickID) {
             localStorage["clickID"] = clickID;
@@ -36,8 +33,8 @@
                     style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
 
-                <button class="boto" type="button" id="loginButton" onclick="window.location.href='./login.html'">👤
-                    Iniciar sessió</button>
+                <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                    sessió</button>
 
                 <script>
                     if (localStorage.getItem("actualUser") !== null) {
@@ -69,8 +66,8 @@
             document.getElementById('Sup').innerHTML = document.getElementById('Superficie').value;
         }
     </script>
-    <div class="llista_r">
-        <ul style="list-style: none; text-align: center;">
+    <div class="llista_r" style="display: flex;  align-items: center; justify-content: center;">
+        <!-- <ul style="list-style: none; text-align: center;">
             <div class="columna_p">
                 <h5>Numero habitacions</h5>
                 <button class="boto" type="button">1</button>
@@ -88,7 +85,7 @@
                 <h5>Data</h5>
                 <input class="inputText" id="Fecha" type="date" name="date">
             </div>
-        </ul>
+        </ul> -->
         <ul style="list-style: none; text-align: center;" id="listado">
         </ul>
     </div>

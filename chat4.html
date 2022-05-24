@@ -5,7 +5,7 @@
 <!--Capçalera de la pagina-->
 
 <head>
-    <title>El teu resultat</title>
+    <title>Chat</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,23 +37,36 @@
   margin: auto;
 }
 </style>
-    <div class="container">
-        <div class="header">
-            <div style="display:flex; flex: 80">
-                <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
-                        src="./logo.png" alt="logo">
-                    <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-                </a>
-            </div>
-            <div class="btn-group">
-                <select class="boto" style="height: 26px;">
-                    <option value="cat">Català</option>
-                    <option value="cast">Castellano</option>
-                    <option value="eng">English</option>
-                </select>
-            </div>
+<div class="container">
+    <div class="header">
+        <div style="display:flex; flex: 80">
+            <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                    src="./logo.png" alt="logo">
+                <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+            </a>
+        </div>
+        <div class="btn-group">
+            <button class="boto" type="button" onclick="window.location.href='./anunci.html'"
+                style="background-color: #76afa4;">📌 Posa
+                el teu anunci!</button>
+
+            <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                sessió</button>
+
+            <script>
+                if (localStorage.getItem("actualUser") !== null) {
+                    document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
+                }
+            </script>
+
+            <select class="boto" style="height: 26px;">
+                <option value="cat">Català</option>
+                <option value="cast">Castellano</option>
+                <option value="eng">English</option>
+            </select>
         </div>
     </div>
+</div>
 </head>
 
 

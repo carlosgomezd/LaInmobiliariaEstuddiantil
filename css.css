@@ -13,10 +13,12 @@ body {
     width: 826px;
 }
 
+
 .img-cerca {
     height: 300px;
     width: 400px;
     border-radius: 25px;
+    float: right;
 }
 
 .header {
@@ -116,7 +118,7 @@ div.wrapper {
     margin-left: 50px;
     background-color: white;
     border-radius: 15px;
-    border:rgb(0, 0, 0) 2px solid;
+    border: rgb(0, 0, 0) 2px solid;
 }
 
 .acceptButtons {
@@ -237,7 +239,7 @@ a.efectoTitulo, a.efectoTitulo:hover {
     align-items: center;
     align-self: center;
     position: relative;
-} 
+}
 
 .cerca {
     text-decoration: none;
@@ -337,6 +339,7 @@ a.exemples:hover {
     text-decoration: underline;
     color: black;
 }
+
 .chats {
     display: flex;
     text-align: left;
@@ -346,6 +349,7 @@ a.exemples:hover {
     font-family: sans-serif;
     margin-top: 30px;
 }
+
 .box-missatges {
     display: flex;
     text-align: left;
@@ -357,7 +361,8 @@ a.exemples:hover {
     font-family: sans-serif;
     margin-top: 30px;
 }
-.missatges{
+
+.missatges {
     flex-direction: column;
     display: flex;
     background: url('./fondo2.jpg');

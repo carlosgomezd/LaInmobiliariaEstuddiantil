@@ -38,16 +38,38 @@
     <script src="./javascript.js"></script>
     <script>window.onload = () => {
             canviarText();
+            img();
         }</script>
 
     <!--Titol amb el logo del login-->
     <div class="container">
-        <div class="row">
-            <div class="header">
+        <div class="header">
+            <div style="display:flex; flex: 80">
                 <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
                         src="./logo.png" alt="logo">
                     <h1 class="h1">La Inmobiliaria Estudiantil</h1>
                 </a>
+            </div>
+            <div class="btn-group">
+
+                <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
+                    el teu anunci!</button>
+
+                <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                    sessió</button>
+
+                <script>
+                    if (localStorage.getItem("actualUser") !== null) {
+                        document.getElementById("loginButton").innerHTML = "👤 El meu perfil";
+                    }
+                </script>
+
+                <select class="boto" style="height: 26px;">
+                    <option value="cat">Català</option>
+                    <option value="cast">Castellano</option>
+                    <option value="eng">English</option>
+                </select>
+
             </div>
         </div>
     </div>
@@ -58,100 +80,71 @@
         <div class="jumbotron" style="margin-top: 100px; background-color: white;">
             <div class="d-flex flex-column">
                 <div class="p-2">
-                    <div class="d-flex align-items-center">
+                    <div style="display:flex;">
                         <div class="p-2">
-                            <h1><span id="_im">Pis</span> <span id="_hab2">2</span> habitacions amb <span
-                                    id="_a2">àtic</span></h1>
+                            <h1><span id="_im">Pis</span>, <span id="_hab">2</span> habitacions amb <span
+                                    id="_a">àtic</span></h1>
                             <h6><span id="_car">Carrer Carrer</span>, <span id="_c">Ciutat</span></h6>
-                        </div>
-                        <div class="p-2">
-                            <div class="rating">
-                                <input type="radio" name="rating" value="5" id="5"><label for="5" href="#"
-                                    class="star">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label for="4" href="#"
-                                    class="star">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3" href="#"
-                                    class="star">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label for="2" href="#"
-                                    class="star">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label for="1" href="#"
-                                    class="star">☆</label>
-                            </div>
                         </div>
                         <div class="p-2 m-xl-auto">
                             <h1><span id="_p">750</span>€/mes</h1>
                         </div>
                         <div class="p-2 m-xl-auto">
                             <button type="button" class="btn btn-primary btn-lg" href="#" id="addClass">Contactar
-                                casolà</button>
+                                propietari</button>
                         </div>
                     </div>
                 </div>
                 <div class="p-2">
-                    <div class="d-flex row">
-                        <div class="p-2 col-sm-9">
-                            <h3>Inmoble de <span id="_s">73</span>m<sup>2</sup> amb bona iluminació ubicat a prop de la
-                                estació de metro, <span id="_hab">2</span> habitacions i <span id="_a">àtic</span>,
-                                disponibilitat de Wi-Fi i ascensor.</h3>
-                                
-                            <h3>A prop de zones de oci, restaurans, gimnasis i centres comercials.</h3>
-                        </div>
-                        <div class="p-2 col-sm-3">
-                            <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50px">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" style="border:0" allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2">
-                    <div class="d-flex align-items-center">
-                        <div class="p-2">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"
-                                    checked>
-                                <label class="form-check-label" for="inlineCheckbox1">Wi-Fi</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"
-                                    checked>
-                                <label class="form-check-label" for="inlineCheckbox2">Transport públic</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
-                                    checked>
-                                <label class="form-check-label" for="inlineCheckbox3">Ascensor</label>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="container">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <img src="photo1.jpg" alt="Imatge de l'exterior del pis" style="width: 100%;
-                            height: 100%;">
+                        <h3>Inmoble de <span id="_s">73</span>m<sup>2</sup>, <span id="_hab2">2</span> habitacions i <span id="_a2">àtic</span>.
+                        </h3>
+                        <h3>
+                            Aquest <span id="_im2">pis</span> compta amb <span id="atributs"></span>
+                        </h3>
+                        <div class="col-sm-7"
+                            style="display: flex; flex-direction:column; align-items: center; justify-content: center; text-align: center;">
+                            <div
+                                style="border: 1px solid black; width:min-content; border-radius: 25px; text-align: center;background-color: rgba(229, 208, 186, 0.8);">
+                                <h2 style="display: flex;align-items: center; justify-content: center;">Valora aquest
+                                    pis!
+                                </h2>
+                                <div style="display: flex;align-items: center; justify-content: center;">
+                                    <div class="rating">
+                                        <input type="radio" name="rating" value="5" id="5"><label for="5" href="#"
+                                            class="star">☆</label>
+                                        <input type="radio" name="rating" value="4" id="4"><label for="4" href="#"
+                                            class="star">☆</label>
+                                        <input type="radio" name="rating" value="3" id="3"><label for="3" href="#"
+                                            class="star">☆</label>
+                                        <input type="radio" name="rating" value="2" id="2"><label for="2" href="#"
+                                            class="star">☆</label>
+                                        <input type="radio" name="rating" value="1" id="1"><label for="1" href="#"
+                                            class="star">☆</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <img src="photo2.jpg" style="width: 100%;
-                            height: 100%">
+                        <div class="p-2 col-sm-5">
+                            <div style="display: flex;align-items: center; justify-content: center;">
+                                <img id="photo"
+                                    style="width: 85%; height: 85%; border-radius: 25px; border: 1px solid black;">
+                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <img src="photo4.jpg" width="100%" style="width: 100%;
-                            height: 100%;">
-                        </div>
+                        <p>Tel. de contacte ☎︎ +34 <span id="_tel"></span></p>
                     </div>
+
                 </div>
             </div>
         </div>
 
         <div class="jumbotronRatings" id="jumbotronRatings" style="margin-top: 100px; display:none; opacity: 100%;">
             <hi class="text-align center" style="margin: 5px 5px 5px 5px;">Escriu la teva resenya!</hi>
-            <input class="form-control input-lg" type="text" >
-            <button type="button" class="btn btn-primary" style="margin: 5px 5px 5px 5px;" id="sortirTrue">Publicar</button>
-            <button type="button" class="btn btn-primary" style="margin: 5px 5px 5px 5px;" id="sortirFalse">Sortir</button>
+            <input class="form-control input-lg" type="text">
+            <button type="button" class="btn btn-primary" style="margin: 5px 5px 5px 5px;"
+                id="sortirTrue">Publicar</button>
+            <button type="button" class="btn btn-primary" style="margin: 5px 5px 5px 5px;"
+                id="sortirFalse">Sortir</button>
         </div>
 
 
@@ -215,20 +208,24 @@
             $(function () {
                 $(".star").click(function () {
                     $("#jumbotronRatings").show();
+                    
                 });
             });
             $(function () {
                 $("#sortirTrue").click(function () {
                     $("#jumbotronRatings").hide();
+                    alert("S'ha publicat la teva resenya!");
                 });
             });
             $(function () {
                 $("#sortirFalse").click(function () {
                     $("#jumbotronRatings").hide();
+
                 });
             });
         </script>
     </div>
+
 </body>
 
 </html>
