@@ -20,7 +20,7 @@ function canviarText() {
   var p = t.preu;
   var im2 = t.immoble;
   var tel = t.tel;
-
+  im2 = im2.toLowerCase();
   document.getElementById("_im").innerHTML = im;
   document.getElementById("_hab").innerHTML = hab;
   document.getElementById("_p").innerHTML = p;
@@ -33,16 +33,38 @@ function canviarText() {
   document.getElementById("_im2").innerHTML = im2;
   document.getElementById("_tel").innerHTML = tel;
   var string = "";
-  if (t.wifi) {
-    string += " Wifi";
+  if (t.wifi && t.ascensor && t.transport) {
+    string += " wifi, ascensor i transport públic proper";
   }
-  if (t.ascensor) {
-    string += ", Ascensor";
+  if (t.wifi && t.ascensor && !t.transport) {
+    string += " wifi i ascensor";
   }
-  if (t.transport) {
-    string += " i fàcil accés a transport públic.";
+  if (!t.wifi && t.ascensor && t.transport) {
+    string += " ascensor i transport públic proper";
   }
+  if (t.wifi && !t.ascensor && t.transport) {
+    string += " wifi i transport públic proper";
+  }
+  if (t.wifi && !t.ascensor && !t.transport) {
+    string += " wifi";
+  }
+  if (!t.wifi && !t.ascensor && t.transport) {
+    string += " transport públic proper";
+  }
+  if (!t.wifi && t.ascensor && !t.transport) {
+    string += " ascensor";
+  }
+  string += ".";
   document.getElementById("atributs").innerHTML = string;
+  if (string === ".") {
+    string = "";
+    document.getElementById("no_atr").innerHTML = string;
+  }
+  if (t.immoble === "Casa") {
+    document.getElementById("cas_pis").innerHTML = "Aquesta";
+  } else {
+    document.getElementById("cas_pis").innerHTML = "Aquest";
+  }
 }
 
 function getBusqueda() {
@@ -216,7 +238,10 @@ function crearDiv(valor, i) {
   class_cardb.appendChild(atri);
   class_col6.appendChild(tel);
   tel.appendChild(atr);
-  tel.setAttribute("style","float: left; position: absolute; bottom:25px; left:50px;");
+  tel.setAttribute(
+    "style",
+    "float: left; position: absolute; bottom:25px; left:50px;"
+  );
 }
 
 function compararCerca() {

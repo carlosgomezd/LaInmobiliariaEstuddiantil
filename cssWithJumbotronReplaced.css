@@ -5,6 +5,12 @@ body {
     overflow-x: hidden;
 }
 
+a.efectoTitulo, a.efectoTitulo:hover {
+    text-decoration: none;
+    color: #e5d0ba;
+    display: flex;
+}
+
 .h1 {
     display: flex;
     margin: auto auto 5px 10px;
@@ -145,11 +151,6 @@ a.efectoTitulo, a.efectoTitulo:hover {
     flex: 80%;
 }
 
-.h1 {
-    display: flex;
-    margin: auto auto 5px 10px;
-    font-weight: 700;
-}
 
 .img {
     height: 44px;
