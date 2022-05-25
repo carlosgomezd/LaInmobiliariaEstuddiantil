@@ -147,6 +147,31 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.atrb = atr[Math.floor(Math.random() * atr.length)];
   this.tel = 9 + Math.random().toString().slice(2, 10);
 }
+function crearPisos() {
+  const ciu = ["Barcelona", "Girona", "Tarragona", "Lleida"];
+  const imm = ["Pis", "Casa"];
+  const piso = [];
+  for (var j = 1; j <= numero_pisos; j++) {
+    const ciuRandom = Math.floor(Math.random() * ciu.length);
+    const immRandom = Math.floor(Math.random() * imm.length);
+    const habRandom = Math.floor(Math.random() * 5) + 1;
+    const prRandom = Math.floor(Math.random() * (1500 - 150 + 1)) + 150;
+    const supRandom = Math.floor(Math.random() * (250 - 15 + 1)) + 15;
+    var pis = new pisos(
+      j,
+      ciu[ciuRandom],
+      imm[immRandom],
+      habRandom,
+      prRandom,
+      supRandom
+    );
+    piso.push(pis);
+  }
+  for (var i = 0; i < piso.length; i++) {
+    localStorage.setItem("pis" + (i + 1), JSON.stringify(piso[i]));
+  }
+  localStorage.setItem("nPisos", piso.length.toString());
+}
 
 function crearDivAux() {
   if (localStorage["nRes"] == 0) {
