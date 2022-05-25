@@ -5,7 +5,7 @@
 <!--Capçalera de la pagina-->
 
 <head>
-    <title>Chat</title>
+    <title>Chat Laura</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,7 +30,8 @@
             });
         })
     </script>
-    </script>
+    <script src="./javascript.js"></script>
+    <link rel="stylesheet" href="./css.css">
     <style>
         .content {
             max-width: 830px;
@@ -58,7 +59,7 @@
                     if (localStorage.getItem("actualUser") !== null) {
                         document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
                         document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
-                    }else{
+                    } else {
                         document.getElementById("bus").setAttribute("onClick", "manageLogin()");
                     }
                 </script>
@@ -101,16 +102,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="border-radius:30px;width: 40%;margin-left:20px;margin-top: 10px" ;>
+                <div class="card" style="border-radius:30px;width: fit-content;margin-left:20px;margin-top: 10px" ;>
                     <div class="row no-gutters" style="margin-left: 5px">
                         <div class="col-sm-14">
                             <div class="card-body">
                                 <h5 class="card-text" style="text-align: left"><span>
-                                        Hola😊,<p></p>
-                                        Acabo de empezar la carrera y busco piso.<p></p>
+                                        Hola😊<br>
+                                        Acabo de empezar la carrera y busco piso.<br>
                                         Me ha interesado mucho tu
-                                        anuncio!!&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    18:31 </p>
+                                        anuncio!!</span>
+                                    <br><span style="font-size: small;text-align: right">18:31</span>
                                 </h5>
                             </div>
                         </div>

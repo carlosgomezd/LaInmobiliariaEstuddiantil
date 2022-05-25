@@ -5,7 +5,7 @@
 <!--Capçalera de la pagina-->
 
 <head>
-    <title>Chat</title>
+    <title>Chat Sergi</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,47 +30,47 @@
             });
         })
     </script>
-    </script>
+    <script src="./javascript.js"></script>
     <style>
-.content {
-  max-width: 830px;
-  margin: auto;
-}
-</style>
-<div class="container">
-    <div class="header">
-        <div style="display:flex; flex: 80">
-            <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
-                    src="./logo.png" alt="logo">
-                <h1 class="h1">La Inmobiliaria Estudiantil</h1>
-            </a>
-        </div>
-        <div class="btn-group">
+        .content {
+            max-width: 830px;
+            margin: auto;
+        }
+    </style>
+    <div class="container">
+        <div class="header">
+            <div style="display:flex; flex: 80">
+                <a class="efectoTitulo" title="La Inmobiliaria Estudiantil" href="./main.html"><img class="img"
+                        src="./logo.png" alt="logo">
+                    <h1 class="h1">La Inmobiliaria Estudiantil</h1>
+                </a>
+            </div>
+            <div class="btn-group">
 
 
-            <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
-                el teu anunci!</button>
-            <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
-            <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
-                sessió</button>
+                <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
+                    el teu anunci!</button>
+                <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
+                <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
+                    sessió</button>
 
-            <script>
-                if (localStorage.getItem("actualUser") !== null) {
-                    document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
-                    document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
-                }else{
-                    document.getElementById("bus").setAttribute("onClick", "manageLogin()");
-                }
-            </script>
-            <select class="boto" style="height: 26px;">
-                <option value="cat">Català</option>
-                <option value="cast">Castellano</option>
-                <option value="eng">English</option>
-            </select>
+                <script>
+                    if (localStorage.getItem("actualUser") !== null) {
+                        document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
+                        document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
+                    } else {
+                        document.getElementById("bus").setAttribute("onClick", "manageLogin()");
+                    }
+                </script>
+                <select class="boto" style="height: 26px;">
+                    <option value="cat">Català</option>
+                    <option value="cast">Castellano</option>
+                    <option value="eng">English</option>
+                </select>
 
+            </div>
         </div>
     </div>
-</div>
 </head>
 
 
@@ -81,7 +81,7 @@
 
     <div class="cercador">
         <div class="msg-box" style="margin-top: 100px;bottom:50px">
-            <div class="d-flex flex-column" style="width: 100%;height: 100%; bottom: 50px" >
+            <div class="d-flex flex-column" style="width: 100%;height: 100%; bottom: 50px">
                 <div class="p-2">
                     <div class="d-flex align-items-center">
                         <div class="row no-gutters" style="margin-left: 5px">
@@ -100,21 +100,25 @@
                         </div>
                     </div>
                 </div>
-                  <div class="card" style="border-radius:30px;width: 40%;margin-left:20px;margin-top: 10px"; >
-                        <div class="row no-gutters" style="margin-left: 5px">
-                            <div class="col-sm-14">
-                                <div class="card-body">
-                                    <h5 class="card-text" style="text-align: left"><span>
-                                    Hey, estic estudiant un master i m'interesa el teu pis</span><span style="font-size: small;text-align: right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  18:31 </span>
-                                    </h5>
-                                </div>
+                <div class="card" style="border-radius:30px;width: fit-content;margin-left:20px;margin-top: 10px" ;>
+                    <div class="row no-gutters" style="margin-left: 5px">
+                        <div class="col-sm-14">
+                            <div class="card-body">
+                                <h5 class="card-text" style="text-align: left"><span>
+                                        Hey, estic estudiant un master i m'interesa el teu pis.</span><br><span
+                                        style="font-size: small;text-align: right">
+                                        18:31 </span>
+                                </h5>
                             </div>
                         </div>
                     </div>
+                </div>
                 <p class="flex-bottom"></p>
                 <form class="msger-inputarea" style="margin-left: 15px;margin-right: 15px;margin-top: 10%">
-                    <input type="text" class="msger-input" placeholder="&nbsp;&nbsp;Escriu el teu missatge..."style="width: 88%;height:80px; border-radius:15px; margin-bottom: 20px">
-                    <button type="submit" class="msger-send-btn"style="width: 11% ;height:70%; border-radius:15px ; min-width: 20px">Send</button>
+                    <input type="text" class="msger-input" placeholder="&nbsp;&nbsp;Escriu el teu missatge..."
+                        style="width: 88%;height:80px; border-radius:15px; margin-bottom: 20px">
+                    <button type="submit" class="msger-send-btn"
+                        style="width: 11% ;height:70%; border-radius:15px ; min-width: 20px">Send</button>
                 </form>
             </div>
 

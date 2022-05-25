@@ -38,7 +38,8 @@
 
                 <button class="boto" type="button" style="background-color: #76afa4;">📌 Posa
                     el teu anunci!</button>
-                <button class="boto" type="button" id="bus" onclick="goToBustia()">📩 La teva bústia</button>
+                <button class="boto" type="button" id="bus" onclick="goToBustia(); ">📩 La teva
+                    bústia</button>
                 <button class="boto" id="loginButton" type="button" onclick="manageLogin()">👤 Inicia
                     sessió</button>
 
@@ -46,7 +47,7 @@
                     if (localStorage.getItem("actualUser") !== null) {
                         document.getElementById("loginButton").innerHTML = "❌ Tanca Sessió";
                         document.getElementById("loginButton").setAttribute("onClick", "closeSession()");
-                    }else{
+                    } else {
                         document.getElementById("bus").setAttribute("onClick", "manageLogin()");
                     }
                 </script>
