@@ -7,6 +7,7 @@ function img() {
   var t = JSON.parse(localStorage["resultat" + localStorage["clickID"]]);
   document.getElementById("photo").setAttribute("src", t.image_url);
 }
+
 function canviarText() {
   var t = JSON.parse(localStorage["resultat" + localStorage["clickID"]]);
   var c = t.ciutat;
@@ -34,36 +35,36 @@ function canviarText() {
   document.getElementById("_tel").innerHTML = tel;
   var string = "";
   if (t.wifi && t.ascensor && t.transport) {
-    string += " wifi, ascensor i transport públic proper";
+    string += " wifi, ascensor i transport públic proper.";
   }
   if (t.wifi && t.ascensor && !t.transport) {
-    string += " wifi i ascensor";
+    string += " wifi i ascensor.";
   }
   if (!t.wifi && t.ascensor && t.transport) {
-    string += " ascensor i transport públic proper";
+    string += " ascensor i transport públic proper.";
   }
   if (t.wifi && !t.ascensor && t.transport) {
-    string += " wifi i transport públic proper";
+    string += " wifi i transport públic proper.";
   }
   if (t.wifi && !t.ascensor && !t.transport) {
-    string += " wifi";
+    string += " wifi.";
   }
   if (!t.wifi && !t.ascensor && t.transport) {
-    string += " transport públic proper";
+    string += " transport públic proper.";
   }
   if (!t.wifi && t.ascensor && !t.transport) {
-    string += " ascensor";
+    string += " ascensor.";
   }
-  string += ".";
   document.getElementById("atributs").innerHTML = string;
-  if (string === ".") {
-    string = "";
-    document.getElementById("no_atr").innerHTML = string;
-  }
+
   if (t.immoble === "Casa") {
     document.getElementById("cas_pis").innerHTML = "Aquesta";
   } else {
     document.getElementById("cas_pis").innerHTML = "Aquest";
+  }
+  if (!t.wifi && !t.ascensor && !t.transport) {
+    string += "";
+    document.getElementById("no_atr").innerHTML = string;
   }
 }
 
@@ -296,37 +297,6 @@ function initData() {
   }
 }
 
-function crearPisos() {
-  const ciu = ["Barcelona", "Girona", "Tarragona", "Lleida"];
-  const imm = ["Pis", "Casa"];
-
-  const piso = [];
-  for (var j = 1; j <= numero_pisos; j++) {
-    const ciuRandom = Math.floor(Math.random() * ciu.length);
-    const immRandom = Math.floor(Math.random() * imm.length);
-    const habRandom = Math.floor(Math.random() * 5) + 1;
-    const prRandom = Math.floor(Math.random() * (1500 - 150 + 1)) + 150;
-    const supRandom = Math.floor(Math.random() * (250 - 15 + 1)) + 15;
-    var pis = new pisos(
-      j,
-      ciu[ciuRandom],
-      imm[immRandom],
-      habRandom,
-      prRandom,
-      supRandom
-    );
-    piso.push(pis);
-  }
-
-  for (var i = 0; i < piso.length; i++) {
-    localStorage.setItem("pis" + (i + 1), JSON.stringify(piso[i]));
-    //localStorage["pis" + (i + 1)] = JSON.stringify(piso[i]);
-    //console.log(JSON.parse(localStorage["pis" + (i + 1)]));
-  }
-  //localStorage["nPisos"] = piso.length;
-  localStorage.setItem("nPisos", piso.length.toString());
-}
-
 function getValorPreu() {
   var slider = document.getElementById("pr");
   var output = document.getElementById("preu");
@@ -453,24 +423,4 @@ function getListFromUser(username) {
   var user = JSON.parse(this.getUser(username));
   console.log("LONGITUD LISTA: " + user.saved_pisos.length);
   return user.saved_pisos;
-}
-
-function addPisos(username) {
-  var user = JSON.parse(this.getUser(username));
-  console.log("NOM DE L'USUARI: " + user.username.toString());
-
-  var pis1 = JSON.parse(localStorage.getItem("pis1"));
-  console.log("URL:" + pis1.image_url.toString());
-  var pis2 = JSON.parse(localStorage.getItem("pis2"));
-  var pis3 = JSON.parse(localStorage.getItem("pis3"));
-  var pis4 = JSON.parse(localStorage.getItem("pis4"));
-
-  var list = [];
-  list.push(pis1);
-  list.push(pis2);
-  list.push(pis3);
-  list.push(pis4);
-
-  user.saved_pisos = list;
-  localStorage[username] = JSON.stringify(user);
 }
