@@ -24,6 +24,13 @@ function canviarText() {
   im2 = im2.toLowerCase();
   document.getElementById("_im").innerHTML = im;
   document.getElementById("_hab").innerHTML = hab;
+  if(hab == 1){
+    document.getElementById("+1hab").innerHTML = "habitació";
+    document.getElementById("+1hab2").innerHTML = "habitació";
+  }else{
+    document.getElementById("+1hab").innerHTML = "habitacions";
+    document.getElementById("+1hab2").innerHTML = "habitacions";
+  }
   document.getElementById("_p").innerHTML = p;
   document.getElementById("_c").innerHTML = c;
   document.getElementById("_s").innerHTML = s;
@@ -107,7 +114,7 @@ function pisos(id, ciutat, immoble, habitacions, preu, superficie) {
   this.wifi = Math.floor(Math.random() * 2) == 1;
   this.transport = Math.floor(Math.random() * 2) == 1;
   this.ascensor = Math.floor(Math.random() * 2) == 1;
-  const atr = ["piscina", "jardi", "àtic", "terrasa"];
+  const atr = ["piscina", "jardí", "àtic", "terrasa"];
 
   const carrer = [
     "Pau Casals",
@@ -214,6 +221,18 @@ function crearDiv(valor, i) {
       pars.preu +
       "€/mes)"
   );
+  var info2 = document.createTextNode(
+    pars.immoble +
+      ", " +
+      pars.habitacions +
+      " habitació amb " +
+      pars.atrb +
+      ", " +
+      pars.superficie +
+      "m² (" +
+      pars.preu +
+      "€/mes)"
+  );
   var string = "";
   if (pars.wifi) {
     string += "📶 Wifi \xa0\xa0\xa0";
@@ -258,8 +277,12 @@ function crearDiv(valor, i) {
   class_row.appendChild(class_col5);
   class_col5.appendChild(img);
   img.src = pars.image_url;
+  if (pars.habitacions == 1) {
+    class_carti.appendChild(info2);
+  } else {
+    class_carti.appendChild(info);
+  }
 
-  class_carti.appendChild(info);
   class_cart.appendChild(carrer);
   class_cardb.appendChild(atri);
   class_col6.appendChild(tel);
